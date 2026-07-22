@@ -357,21 +357,22 @@
   <div id="banner" class="banner" role="alert" hidden></div>
   <header>
     <h1>Topps Match Attax Extra 2025/26</h1>
-    <div class="subtitle">Card Tracker · 319 cards total</div>
+    <div class="subtitle">Card Tracker &nbsp;&middot;&nbsp; 444 cards &nbsp;(319 base &middot; 125 inserts, relics &amp; autos)</div>
     <div class="overall">
-      <span id="ownedCount">0</span>/<span id="ownedTotal">319</span>
+      <span id="ownedCount">0</span>/<span id="ownedTotal">444</span>
       <span class="pct" id="ownedPct">0%</span>
     </div>
     <div class="bar"><div id="overallBar" style="width:0%"></div></div>
     <div class="legend">
       <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-squad)"></span> Squad Update</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-manager)"></span> Manager</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-awaykit)"></span> Away Kit</span>
       <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-womens)"></span> Women's UCL</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-wingman)"></span> Wingman</span>
       <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-kings)"></span> Kings of Europe</span>
       <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-100club)"></span> 100 Club</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-clutch)"></span> Clutch Kids</span>
+      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-le)"></span> Limited Editions</span>
+      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-infinity)"></span> Infinity</span>
+      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-chrome)"></span> Chrome X</span>
+      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-relic)"></span> Relics</span>
+      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-auto)"></span> Autographs</span>
     </div>
   </header>
 
@@ -414,57 +415,121 @@
   <script>
   // ==== Pure logic (testable) ====
   window.__toppsApp = {
-    TOTAL_CARDS: 319,
+    TOTAL_CARDS: 444,
 
     SECTION_LABELS: {
-      'Squad Update':                    'Squad Update',
-      'Manager':                         'Manager',
-      'Away Kit':                        'Away Kit',
-      "UEFA Women's Champions League":   "Women's UCL",
-      'Wingman':                         'Wingman',
-      'Pitch Perfection':                'Pitch Perfection',
-      'Kings of Europe':                 'Kings of Europe',
-      'Hat-Trick Hero':                  'Hat-Trick Hero',
-      'Heritage: Man of the Match':      'Heritage: MoM',
-      'Heritage: Woman of the Match':    'Heritage: WoM',
-      '100 Club':                        '100 Club',
-      "100 Club Women's":                "100 Club Women's",
-      '100 Club Legend':                 '100 Club Legend',
-      'Clutch Kids':                     'Clutch Kids',
-      'Official Matchball':              'Official Matchball',
-      'Title Card':                      'Title Card',
-      '2026 Finals':                     '2026 Finals',
+      // Base
+      'Squad Update':                               'Squad Update',
+      'Manager':                                    'Manager',
+      'Away Kit':                                   'Away Kit',
+      "UEFA Women's Champions League":              "Women's UCL",
+      'Wingman':                                    'Wingman',
+      'Pitch Perfection':                           'Pitch Perfection',
+      'Kings of Europe':                            'Kings of Europe',
+      'Hat-Trick Hero':                             'Hat-Trick Hero',
+      'Topps Heritage - Man of the Match':          'Heritage: MoM',
+      'Topps Heritage - Woman of the Match':        'Heritage: WoM',
+      '100 Club':                                   '100 Club',
+      "100 Club UEFA Women's Champions League":     "100 Club Women's UCL",
+      '100 Club Legend':                            '100 Club Legend',
+      'Clutch Kids':                                'Clutch Kids',
+      'UEFA Official Matchball':                    'Official Matchball',
+      'Match Attax Extra Title Card':               'Title Card',
+      'UEFA 2026 Finals':                           '2026 Finals',
+      // Inserts / LEs
+      'Limited Edition - ElectriX':                'LE – ElectriX',
+      'Limited Edition - Blitz Ballerz':           'LE – Blitz Ballerz',
+      'Limited Edition - Goaliaths':               'LE – Goaliaths',
+      'Limited Edition - Psykicks':                'LE – Psykicks',
+      'Limited Edition - Stadium Lights':          'LE – Stadium Lights',
+      'Infinity':                                  'Infinity',
+      'Chrome X':                                  'Chrome X',
+      'Crome X':                                   'Chrome X',
+      'Build-a-Baller Ultimate Baller':            'Build-a-Baller',
+      'Black Edge Edition':                        'Black Edge',
+      'Platinum Pull Limited Edition':             'Platinum Pull',
+      'X-Calibre':                                 'X-Calibre',
+      'Gold Rush Ultra Limited Edition':           'Gold Rush',
+      'Black Fire Limited Edition':                'Black Fire',
+      'X Greats Limited Edition':                  'X Greats',
+      'Facsimile Signature Style Pro View':        'Pro View (Facsimile)',
+      'Pro-View Original':                         'Pro-View Original',
+      '3D X-Lens Phase Shifter':                   '3D X-Lens',
+      'Royal Elite Limited Edition':               'Royal Elite',
+      'Royal Elite Limited Edition – Parallel':    'Royal Elite (Parallel)',
+      // Memorabilia / Autographs
+      'UCL Decades Relic':                         'UCL Decades Relic',
+      'Player-Worn Jersey Relic':                  'Jersey Relic',
+      'Genuine Autograph':                         'Genuine Autograph',
     },
 
     SECTION_ORDER: [
+      // Base
       'Squad Update', 'Manager', 'Away Kit',
       "UEFA Women's Champions League",
       'Wingman', 'Pitch Perfection', 'Kings of Europe',
       'Hat-Trick Hero',
-      'Heritage: Man of the Match', 'Heritage: Woman of the Match',
-      '100 Club', "100 Club Women's", '100 Club Legend',
-      'Clutch Kids', 'Official Matchball', 'Title Card', '2026 Finals',
+      'Topps Heritage - Man of the Match', 'Topps Heritage - Woman of the Match',
+      '100 Club', "100 Club UEFA Women's Champions League", '100 Club Legend',
+      'Clutch Kids', 'UEFA Official Matchball', 'Match Attax Extra Title Card', 'UEFA 2026 Finals',
+      // Inserts
+      'Limited Edition - ElectriX',
+      'Limited Edition - Blitz Ballerz', 'Limited Edition - Goaliaths', 'Limited Edition - Psykicks',
+      'Limited Edition - Stadium Lights',
+      'Infinity', 'Chrome X', 'Crome X',
+      'Build-a-Baller Ultimate Baller',
+      'Black Edge Edition', 'Platinum Pull Limited Edition',
+      'X-Calibre', 'Gold Rush Ultra Limited Edition', 'Black Fire Limited Edition',
+      'X Greats Limited Edition',
+      'Facsimile Signature Style Pro View', 'Pro-View Original',
+      '3D X-Lens Phase Shifter',
+      'Royal Elite Limited Edition', 'Royal Elite Limited Edition – Parallel',
+      // Mem / Autos
+      'UCL Decades Relic', 'Player-Worn Jersey Relic', 'Genuine Autograph',
     ],
 
     // Section → CSS class for the colour dot
     SECTION_CSS: {
-      'Squad Update':                    'sec-squad-update',
-      'Manager':                         'sec-manager',
-      'Away Kit':                        'sec-away-kit',
-      "UEFA Women's Champions League":   'sec-womens',
-      'Wingman':                         'sec-wingman',
-      'Pitch Perfection':                'sec-pitch-perfection',
-      'Kings of Europe':                 'sec-kings-of-europe',
-      'Hat-Trick Hero':                  'sec-hat-trick-hero',
-      'Heritage: Man of the Match':      'sec-heritage-mom',
-      'Heritage: Woman of the Match':    'sec-heritage-wom',
-      '100 Club':                        'sec-100-club',
-      "100 Club Women's":                'sec-100-club-w',
-      '100 Club Legend':                 'sec-100-club-legend',
-      'Clutch Kids':                     'sec-clutch-kids',
-      'Official Matchball':              'sec-special',
-      'Title Card':                      'sec-special',
-      '2026 Finals':                     'sec-special',
+      'Squad Update':                               'sec-squad-update',
+      'Manager':                                    'sec-manager',
+      'Away Kit':                                   'sec-away-kit',
+      "UEFA Women's Champions League":              'sec-womens',
+      'Wingman':                                    'sec-wingman',
+      'Pitch Perfection':                           'sec-pitch-perfection',
+      'Kings of Europe':                            'sec-kings-of-europe',
+      'Hat-Trick Hero':                             'sec-hat-trick-hero',
+      'Topps Heritage - Man of the Match':          'sec-heritage-mom',
+      'Topps Heritage - Woman of the Match':        'sec-heritage-wom',
+      '100 Club':                                   'sec-100-club',
+      "100 Club UEFA Women's Champions League":     'sec-100-club-w',
+      '100 Club Legend':                            'sec-100-club-legend',
+      'Clutch Kids':                                'sec-clutch-kids',
+      'UEFA Official Matchball':                    'sec-special',
+      'Match Attax Extra Title Card':               'sec-special',
+      'UEFA 2026 Finals':                           'sec-special',
+      'Limited Edition - ElectriX':                'sec-le',
+      'Limited Edition - Blitz Ballerz':           'sec-le',
+      'Limited Edition - Goaliaths':               'sec-le',
+      'Limited Edition - Psykicks':                'sec-le',
+      'Limited Edition - Stadium Lights':          'sec-le',
+      'Infinity':                                  'sec-infinity',
+      'Chrome X':                                  'sec-chrome-x',
+      'Crome X':                                   'sec-chrome-x',
+      'Build-a-Baller Ultimate Baller':            'sec-bab',
+      'Black Edge Edition':                        'sec-black-edge',
+      'Platinum Pull Limited Edition':             'sec-plat-pull',
+      'X-Calibre':                                 'sec-x-calibre',
+      'Gold Rush Ultra Limited Edition':           'sec-gold-rush',
+      'Black Fire Limited Edition':                'sec-black-fire',
+      'X Greats Limited Edition':                  'sec-x-greats',
+      'Facsimile Signature Style Pro View':        'sec-proview',
+      'Pro-View Original':                         'sec-proview',
+      '3D X-Lens Phase Shifter':                   'sec-lens3d',
+      'Royal Elite Limited Edition':               'sec-royal-elite',
+      'Royal Elite Limited Edition – Parallel':    'sec-royal-elite',
+      'UCL Decades Relic':                         'sec-ucl-relic',
+      'Player-Worn Jersey Relic':                  'sec-jersey-relic',
+      'Genuine Autograph':                         'sec-autograph',
     },
 
     parseQuickAdd(input) {
@@ -476,13 +541,13 @@
         const m = tok.match(/^(\d+)-(\d+)$/);
         if (m) {
           const a = parseInt(m[1], 10), b = parseInt(m[2], 10);
-          if (a > b || a < 1 || b > 319) { errors.push(tok); continue; }
+          if (a > b || a < 1 || b > 9999) { errors.push(tok); continue; }
           for (let n = a; n <= b; n++) valid.push(n);
           continue;
         }
         if (/^\d+$/.test(tok)) {
           const n = parseInt(tok, 10);
-          if (n < 1 || n > 319) { errors.push(tok); continue; }
+          if (n < 1 || n > 9999) { errors.push(tok); continue; }
           valid.push(n);
           continue;
         }
@@ -582,16 +647,16 @@
       const normalized = {};
       if (Array.isArray(importedCollection)) {
         for (const n of importedCollection) {
-          if (typeof n !== 'number' || n < 1 || n > 319) continue;
+          if (typeof n !== 'number' || n < 1 || n > 9999) continue;
           normalized[n] = (normalized[n] || 0) + 1;
         }
       } else if (importedCollection && typeof importedCollection === 'object') {
         for (const [k, v] of Object.entries(importedCollection)) {
-          const n = parseInt(k, 10);
+          const asNum = parseInt(k, 10);
+          const key = String(asNum) === k ? asNum : k;
           const c = typeof v === 'number' ? v : parseInt(v, 10);
-          if (!Number.isFinite(n) || n < 1 || n > 319) continue;
           if (!Number.isFinite(c) || c < 1) continue;
-          normalized[n] = c;
+          normalized[key] = c;
         }
       }
       let out;
@@ -607,11 +672,11 @@
       if (importedReserved !== null) {
         const cleanReserved = {};
         for (const [k, v] of Object.entries(importedReserved)) {
-          const n = parseInt(k, 10);
+          const asNum = parseInt(k, 10);
+          const key = String(asNum) === k ? asNum : k;
           const c = typeof v === 'number' ? v : parseInt(v, 10);
-          if (!Number.isFinite(n) || n < 1 || n > 319) continue;
           if (!Number.isFinite(c) || c < 1) continue;
-          cleanReserved[n] = c;
+          cleanReserved[key] = c;
         }
         out.reserved = cleanReserved;
       }
@@ -631,6 +696,8 @@
       if (String(card.number) === q) return true;
       if (card.section && card.section.toLowerCase().includes(q)) return true;
       if (card.player && card.player.toLowerCase().includes(q)) return true;
+      if (card.team  && card.team.toLowerCase().includes(q)) return true;
+      if (card.type  && card.type.toLowerCase().includes(q)) return true;
       return false;
     },
 
@@ -652,11 +719,13 @@
         if (!raw) return {};
         const parsed = JSON.parse(raw);
         if (!parsed || typeof parsed !== 'object') return {};
+        // Keys may be numeric (base) or string codes (e.g. "CX1") for inserts
         const clean = {};
         for (const [k, v] of Object.entries(parsed)) {
-          const n = parseInt(k, 10);
-          const c = parseInt(v, 10);
-          if (n >= 1 && n <= 319 && c >= 1) clean[n] = c;
+          const c = typeof v === 'number' ? v : parseInt(v, 10);
+          if (!Number.isFinite(c) || c < 1) continue;
+          const asNum = parseInt(k, 10);
+          clean[String(asNum) === k ? asNum : k] = c;
         }
         return clean;
       } catch (_) { return {}; }
@@ -675,9 +744,10 @@
         if (!parsed || typeof parsed !== 'object') return {};
         const clean = {};
         for (const [k, v] of Object.entries(parsed)) {
-          const n = parseInt(k, 10);
-          const c = parseInt(v, 10);
-          if (n >= 1 && n <= 319 && c >= 1) clean[n] = c;
+          const c = typeof v === 'number' ? v : parseInt(v, 10);
+          if (!Number.isFinite(c) || c < 1) continue;
+          const asNum = parseInt(k, 10);
+          clean[String(asNum) === k ? asNum : k] = c;
         }
         return clean;
       } catch (_) { return {}; }
@@ -750,9 +820,10 @@
     }
 
     function renderTile(c) {
-      const count   = collection[c.number] || 0;
-      const owned   = count >= 1;
-      const isRsv   = !owned && (reserved[c.number] || 0) > 0;
+      const key   = c.number;
+      const count = collection[key] || 0;
+      const owned = count >= 1;
+      const isRsv = !owned && (reserved[key] || 0) > 0;
 
       const tile = document.createElement('div');
       tile.className = 'tile' + (owned ? ' owned' : '') + (isRsv ? ' reserved' : '');
@@ -790,7 +861,8 @@
 
       const meta = document.createElement('span');
       meta.className = 'meta';
-      meta.textContent = app.SECTION_LABELS[c.section] || c.section;
+      // show team if meaningful, else fall back to section label
+      meta.textContent = (c.team && c.team !== '-') ? c.team : (app.SECTION_LABELS[c.section] || c.section);
 
       tile.append(num, name, meta);
       return tile;
@@ -851,15 +923,33 @@
         return el;
       }
 
-      const h = document.createElement('h3');
-      h.textContent = 'Sections';
-      summary.appendChild(h);
+      const hBase = document.createElement('h3');
+      hBase.textContent = 'Base Cards';
+      summary.appendChild(hBase);
+
+      const BASE_SECS = [
+        'Squad Update','Manager','Away Kit',"UEFA Women's Champions League",
+        'Wingman','Pitch Perfection','Kings of Europe','Hat-Trick Hero',
+        'Topps Heritage - Man of the Match','Topps Heritage - Woman of the Match',
+        '100 Club',"100 Club UEFA Women's Champions League",'100 Club Legend',
+        'Clutch Kids','UEFA Official Matchball','Match Attax Extra Title Card','UEFA 2026 Finals',
+      ];
+      const MEM_SECS = ['UCL Decades Relic','Player-Worn Jersey Relic','Genuine Autograph'];
+      let didInserts = false, didMem = false;
 
       for (const sec of app.SECTION_ORDER) {
         const info = stats.perSection[sec];
         if (!info) continue;
         const label = app.SECTION_LABELS[sec] || sec;
         const dot   = app.SECTION_CSS[sec] || '';
+        if (!BASE_SECS.includes(sec) && !MEM_SECS.includes(sec) && !didInserts) {
+          const h = document.createElement('h3'); h.textContent = 'Inserts & Specials'; summary.appendChild(h);
+          didInserts = true;
+        }
+        if (MEM_SECS.includes(sec) && !didMem) {
+          const h = document.createElement('h3'); h.textContent = 'Memorabilia & Autographs'; summary.appendChild(h);
+          didMem = true;
+        }
         summary.appendChild(row('section', sec, label, dot, info.owned, info.incoming, info.total));
       }
 
@@ -870,6 +960,12 @@
         btn.textContent = 'Show all';
         summary.appendChild(btn);
       }
+    }
+
+    function cardKey(raw) {
+      // Returns a number for pure-numeric ids, string otherwise (e.g. 'CX1')
+      const n = parseInt(raw, 10);
+      return String(n) === String(raw) ? n : raw;
     }
 
     function toggle(n) {
@@ -893,7 +989,7 @@
       cardEditNumber = n;
       const cur = collection[n] || 0;
       const rsv = (reserved[n] || 0) > 0;
-      const card = checklist.find(c => c.number === n);
+      const card = checklist.find(c => String(c.number) === String(n));
       cardEditTitle.textContent = '#' + n + (card ? ' · ' + card.player : '');
       cardEditCount.value = String(cur);
       cardEditReserved.checked = rsv;
@@ -942,20 +1038,20 @@
       const tile = e.target.closest('.tile');
       if (!tile) return;
       if (longPressed) { longPressed = false; return; }
-      toggle(parseInt(tile.dataset.number, 10));
+      toggle(cardKey(tile.dataset.number));
     });
 
     grid.addEventListener('contextmenu', (e) => {
       const tile = e.target.closest('.tile');
       if (!tile) return;
       e.preventDefault();
-      openCardEdit(parseInt(tile.dataset.number, 10));
+      openCardEdit(cardKey(tile.dataset.number));
     });
 
     grid.addEventListener('touchstart', (e) => {
       const tile = e.target.closest('.tile');
       if (!tile) return;
-      const n = parseInt(tile.dataset.number, 10);
+      const n = cardKey(tile.dataset.number);
       if (pressTimer) clearTimeout(pressTimer);
       pressTimer = setTimeout(() => {
         longPressed = true;

@@ -1,1597 +1,3110 @@
 [
   {
-    "number": 1,
+    "number": "1",
     "player": "Rio Ngumoha",
+    "team": "Liverpool",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 2,
+    "number": "2",
     "player": "Alexander Isak",
+    "team": "Liverpool",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 3,
+    "number": "3",
     "player": "Cristhian Mosquera",
+    "team": "Arsenal",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 4,
+    "number": "4",
     "player": "Piero Hincapie",
+    "team": "Arsenal",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 5,
+    "number": "5",
     "player": "Gianluigi Donnarumma",
+    "team": "Manchester City",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 6,
+    "number": "6",
     "player": "Rayan Aït-Nouri",
+    "team": "Manchester City",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 7,
+    "number": "7",
     "player": "Nico O'Reilly",
+    "team": "Manchester City",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 8,
+    "number": "8",
     "player": "Jorrel Hato",
+    "team": "Chelsea",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 9,
+    "number": "9",
     "player": "Marc Cucurella",
+    "team": "Chelsea",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 10,
+    "number": "10",
     "player": "Pedro Neto",
+    "team": "Chelsea",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 11,
+    "number": "11",
     "player": "Jamie Gittens",
+    "team": "Chelsea",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 12,
+    "number": "12",
     "player": "Tino Livramento",
+    "team": "Newcastle United",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 13,
+    "number": "13",
     "player": "Malick Thiaw",
+    "team": "Newcastle United",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 14,
+    "number": "14",
     "player": "Yoane Wissa",
+    "team": "Newcastle United",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 15,
+    "number": "15",
     "player": "Djed Spence",
+    "team": "Tottenham Hotspur",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 16,
+    "number": "16",
     "player": "Pape Matar Sarr",
+    "team": "Tottenham Hotspur",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 17,
+    "number": "17",
     "player": "Wilson Odobert",
+    "team": "Tottenham Hotspur",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 18,
+    "number": "18",
     "player": "Richarlison",
+    "team": "Tottenham Hotspur",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 19,
+    "number": "19",
     "player": "Amadou Onana",
+    "team": "Aston Villa",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 20,
+    "number": "20",
     "player": "Evann Guessand",
+    "team": "Aston Villa",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 21,
+    "number": "21",
     "player": "Douglas Luiz",
+    "team": "Nottingham Forest",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 22,
+    "number": "22",
     "player": "Igor Jesus",
+    "team": "Nottingham Forest",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 23,
+    "number": "23",
     "player": "Dean Henderson",
+    "team": "Crystal Palace",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 24,
+    "number": "24",
     "player": "Daniel Munoz",
+    "team": "Crystal Palace",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 25,
+    "number": "25",
     "player": "Maxence Lacroix",
+    "team": "Crystal Palace",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 26,
+    "number": "26",
     "player": "Jaydee Canvot",
+    "team": "Crystal Palace",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 27,
+    "number": "27",
     "player": "Ismaila Sarr",
+    "team": "Crystal Palace",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 28,
+    "number": "28",
     "player": "Jean-Philippe Mateta",
+    "team": "Crystal Palace",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 29,
+    "number": "29",
     "player": "Joan Garcia",
+    "team": "FC Barcelona",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 30,
+    "number": "30",
     "player": "Franco Mastantuono",
+    "team": "Real Madrid CF",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 31,
+    "number": "31",
     "player": "Gonzalo Garcia",
+    "team": "Real Madrid CF",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 32,
+    "number": "32",
     "player": "Robin Le Normand",
+    "team": "Atlético de Madrid",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 33,
-    "player": "Jonny Cardoso",
+    "number": "33",
+    "player": "Johnny Cardoso",
+    "team": "Atlético de Madrid",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 34,
+    "number": "34",
     "player": "Nicolas Gonzalez",
+    "team": "Atlético de Madrid",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 35,
+    "number": "35",
     "player": "Giovani Lo Celso",
+    "team": "Real Betis Balompié",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 36,
+    "number": "36",
     "player": "Tom Bischof",
+    "team": "FC Bayern München",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 37,
+    "number": "37",
     "player": "Nicolas Jackson",
+    "team": "FC Bayern München",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 38,
+    "number": "38",
     "player": "Loic Bade",
+    "team": "Bayer 04 Leverkusen",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 39,
+    "number": "39",
     "player": "Eliesse Ben Seghir",
+    "team": "Bayer 04 Leverkusen",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 40,
+    "number": "40",
     "player": "Carney Chukwuemeka",
+    "team": "Borussia Dortmund",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 41,
+    "number": "41",
     "player": "Felix Nmecha",
+    "team": "Borussia Dortmund",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 42,
+    "number": "42",
     "player": "Bilal El Khannouss",
+    "team": "VfB Stuttgart",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 43,
+    "number": "43",
     "player": "Chema Andres",
+    "team": "VfB Stuttgart",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 44,
+    "number": "44",
     "player": "Lucas Chevalier",
+    "team": "Paris Saint-Germain",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 45,
+    "number": "45",
     "player": "Paul Pogba",
+    "team": "AS Monaco FC",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 46,
+    "number": "46",
     "player": "Folarin Balogun",
+    "team": "AS Monaco FC",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 47,
+    "number": "47",
     "player": "Rui Silva",
+    "team": "Sporting Clube de Portugal",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 48,
+    "number": "48",
     "player": "Luis Suarez",
+    "team": "Sporting Clube de Portugal",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 49,
-    "player": "Anatoliy Trubin",
+    "number": "49",
+    "player": "Anatoily Trubin",
+    "team": "SL Benfica",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 50,
+    "number": "50",
     "player": "William Gomes",
+    "team": "FC Porto",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 51,
+    "number": "51",
     "player": "Gabri Veiga",
+    "team": "FC Porto",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 52,
+    "number": "52",
     "player": "Borja Sainz",
+    "team": "FC Porto",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 53,
+    "number": "53",
     "player": "Sam Beukema",
+    "team": "SSC Napoli",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 54,
+    "number": "54",
     "player": "Stanislav Lobotka",
+    "team": "SSC Napoli",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 55,
+    "number": "55",
     "player": "Yann-Aurel Bisseck",
+    "team": "FC Internazionale Milano",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 56,
+    "number": "56",
     "player": "Ange-Yoan Bonny",
+    "team": "FC Internazionale Milano",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 57,
-    "player": "Giorgio Scalvini",
+    "number": "57",
+    "player": "Girogio Scalvini",
+    "team": "Atalanta",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 58,
+    "number": "58",
     "player": "Charles De Ketelaere",
+    "team": "Atalanta",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 59,
+    "number": "59",
     "player": "João Mario",
+    "team": "Juventus",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 60,
+    "number": "60",
     "player": "Edon Zhegrova",
+    "team": "Juventus",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 61,
+    "number": "61",
     "player": "Dusan Vlahovic",
+    "team": "Juventus",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 62,
+    "number": "62",
     "player": "Wesley",
+    "team": "AS Roma",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 63,
+    "number": "63",
     "player": "Evan Ndicka",
+    "team": "AS Roma",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 64,
+    "number": "64",
     "player": "Evan Ferguson",
+    "team": "AS Roma",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 65,
+    "number": "65",
     "player": "Ismael Saibari",
+    "team": "PSV Eindhoven",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 66,
+    "number": "66",
     "player": "Ricardo Pepi",
+    "team": "PSV Eindhoven",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 67,
+    "number": "67",
     "player": "Kieran Tierney",
+    "team": "Celtic FC",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 68,
+    "number": "68",
     "player": "Kelechi Iheanacho",
+    "team": "Celtic FC",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 69,
+    "number": "69",
     "player": "Djeidi Gassama",
+    "team": "Rangers FC",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 70,
+    "number": "70",
     "player": "Mikey Moore",
+    "team": "Rangers FC",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 71,
+    "number": "71",
     "player": "Maurits Kjaergaard",
+    "team": "FC Salzburg",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 72,
-    "player": "Peter Ratkov",
+    "number": "72",
+    "player": "Petar Ratkov",
+    "team": "FC Salzburg",
+    "type": "Base",
     "section": "Squad Update"
   },
   {
-    "number": 73,
+    "number": "73",
     "player": "Mikel Arteta",
+    "team": "Arsenal",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 74,
+    "number": "74",
     "player": "Pep Guardiola",
+    "team": "Manchester City",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 75,
+    "number": "75",
     "player": "Enzo Maresca",
+    "team": "Chelsea",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 76,
+    "number": "76",
     "player": "Eddie Howe",
+    "team": "Newcastle United",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 77,
+    "number": "77",
     "player": "Thomas Frank",
+    "team": "Tottenham Hotspur",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 78,
+    "number": "78",
     "player": "Unai Emery",
+    "team": "Aston Villa",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 79,
+    "number": "79",
     "player": "Sean Dyche",
+    "team": "Nottingham Forest",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 80,
+    "number": "80",
     "player": "Oliver Glasner",
+    "team": "Crystal Palace",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 81,
+    "number": "81",
     "player": "Hansi Flick",
+    "team": "FC Barcelona",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 82,
+    "number": "82",
     "player": "Xabi Alonso",
+    "team": "Real Madrid CF",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 83,
+    "number": "83",
     "player": "Diego Simeone",
+    "team": "Atlético de Madrid",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 84,
+    "number": "84",
     "player": "Ernesto Valverde",
+    "team": "Athletic Club",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 85,
+    "number": "85",
     "player": "Manuel Pellegrini",
+    "team": "Real Betis Balompié",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 86,
+    "number": "86",
     "player": "Vincent Kompany",
+    "team": "FC Bayern München",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 87,
+    "number": "87",
     "player": "Kasper Hjulmand",
+    "team": "Bayer 04 Leverkusen",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 88,
+    "number": "88",
     "player": "Niko Kovac",
+    "team": "Borussia Dortmund",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 89,
-    "player": "Sebastian Hoeneß",
+    "number": "89",
+    "player": "Sebastian Hoeneb",
+    "team": "VfB Stuttgart",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 90,
+    "number": "90",
     "player": "Luis Enrique",
+    "team": "Paris Saint-Germain",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 91,
+    "number": "91",
     "player": "Rui Borges",
+    "team": "Sporting Clube de Portugal",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 92,
+    "number": "92",
     "player": "Jose Mourinho",
+    "team": "SL Benfica",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 93,
+    "number": "93",
     "player": "Francesco Farioli",
+    "team": "FC Porto",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 94,
+    "number": "94",
     "player": "Antonio Conte",
+    "team": "SSC Napoli",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 95,
+    "number": "95",
     "player": "Cristian Chivu",
+    "team": "FC Internazionale Milano",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 96,
+    "number": "96",
     "player": "Luciano Spalletti",
+    "team": "Juventus",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 97,
+    "number": "97",
     "player": "Gian Piero Gasperini",
+    "team": "AS Roma",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 98,
+    "number": "98",
     "player": "Peter Bosz",
+    "team": "PSV Eindhoven",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 99,
+    "number": "99",
     "player": "Danny Rohl",
+    "team": "Rangers FC",
+    "type": "Base",
     "section": "Manager"
   },
   {
-    "number": 100,
+    "number": "100",
     "player": "Jeremie Frimpong",
+    "team": "Liverpool",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 101,
+    "number": "101",
     "player": "Martin Zubimendi",
+    "team": "Arsenal",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 102,
+    "number": "102",
     "player": "Bernardo Silva",
+    "team": "Manchester City",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 103,
+    "number": "103",
     "player": "Moises Caicedo",
+    "team": "Chelsea",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 104,
+    "number": "104",
     "player": "Sandro Tonali",
+    "team": "Newcastle United",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 105,
+    "number": "105",
     "player": "João Palhinha",
+    "team": "Tottenham Hotspur",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 106,
+    "number": "106",
     "player": "Donyell Malen",
+    "team": "Aston Villa",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 107,
+    "number": "107",
     "player": "Chris Wood",
+    "team": "Nottingham Forest",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 108,
+    "number": "108",
     "player": "Marc Guehi",
+    "team": "Crystal Palace",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 109,
+    "number": "109",
     "player": "Ferran Torres",
+    "team": "FC Barcelona",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 110,
+    "number": "110",
     "player": "Alvaro Carreras",
+    "team": "Real Madrid CF",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 111,
+    "number": "111",
     "player": "Marcos Llorente",
+    "team": "Atlético de Madrid",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 112,
+    "number": "112",
     "player": "Mikel Jauregizar",
+    "team": "Athletic Club",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 113,
+    "number": "113",
     "player": "Isco",
+    "team": "Real Betis Balompié",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 114,
+    "number": "114",
     "player": "Aleksandar Pavlovic",
+    "team": "FC Bayern München",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 115,
-    "player": "Maximilian Beier",
+    "number": "115",
+    "player": "Maximillan Beier",
+    "team": "Borussia Dortmund",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 116,
+    "number": "116",
     "player": "Can Uzun",
+    "team": "Eintracht Frankfurt",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 117,
+    "number": "117",
     "player": "Illia Zabarnyi",
+    "team": "Paris Saint-Germain",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 118,
+    "number": "118",
     "player": "Takumi Minamino",
+    "team": "AS Monaco FC",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 119,
+    "number": "119",
     "player": "Lorenzo Lucca",
+    "team": "SSC Napoli",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 120,
+    "number": "120",
     "player": "Petar Sucic",
+    "team": "FC Internazionale Milano",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 121,
+    "number": "121",
     "player": "Francisco Conceicao",
+    "team": "Juventus",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 122,
+    "number": "122",
     "player": "Albert Gudmundsson",
+    "team": "ACF Fiorentina",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 123,
+    "number": "123",
     "player": "Gianluca Mancini",
+    "team": "AS Roma",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 124,
+    "number": "124",
     "player": "Pedro Goncalves",
+    "team": "Sporting Clube de Portugal",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 125,
+    "number": "125",
     "player": "Pablo Rosario",
+    "team": "FC Porto",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 126,
+    "number": "126",
     "player": "Benjamin Nygren",
+    "team": "Celtic FC",
+    "type": "Base",
     "section": "Away Kit"
   },
   {
-    "number": 127,
+    "number": "127",
     "player": "Leah Williamson",
+    "team": "Arsenal",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 128,
+    "number": "128",
     "player": "Frida Maanum",
+    "team": "Arsenal",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 129,
+    "number": "129",
     "player": "Mariona Caldentey",
+    "team": "Arsenal",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 130,
+    "number": "130",
     "player": "Olivia Smith",
+    "team": "Arsenal",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 131,
+    "number": "131",
     "player": "Chloe Kelly",
+    "team": "Arsenal",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 132,
+    "number": "132",
     "player": "Caitlin Foord",
+    "team": "Arsenal",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 133,
+    "number": "133",
     "player": "Niamh Charles",
+    "team": "Chelsea",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 134,
+    "number": "134",
     "player": "Ellie Carpenter",
+    "team": "Chelsea",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 135,
+    "number": "135",
     "player": "Keira Walsh",
+    "team": "Chelsea",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 136,
-    "player": "Aggie Beaver-Jones",
+    "number": "136",
+    "player": "Aggie Beever-Jones",
+    "team": "Chelsea",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 137,
+    "number": "137",
     "player": "Sandy Baltimore",
+    "team": "Chelsea",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 138,
+    "number": "138",
     "player": "Fridolina Rolfo",
+    "team": "Manchester United",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 139,
+    "number": "139",
     "player": "Maya Le Tissier",
+    "team": "Manchester United",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 140,
+    "number": "140",
     "player": "Ella Toone",
+    "team": "Manchester United",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 141,
+    "number": "141",
     "player": "Melvine Malard",
+    "team": "Manchester United",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 142,
+    "number": "142",
     "player": "Jess Park",
+    "team": "Manchester United",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 143,
-    "player": "Alexis Putellas",
+    "number": "143",
+    "player": "Alexia Putellas",
+    "team": "FC Barcelona",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 144,
+    "number": "144",
     "player": "Patri Guijarro",
+    "team": "FC Barcelona",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 145,
+    "number": "145",
     "player": "Claudia Pina",
+    "team": "FC Barcelona",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 146,
+    "number": "146",
     "player": "Vicky Lopez",
+    "team": "FC Barcelona",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 147,
+    "number": "147",
     "player": "Salma Paralluelo",
+    "team": "FC Barcelona",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 148,
+    "number": "148",
     "player": "Caroline Weir",
+    "team": "Real Madrid CF",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 149,
+    "number": "149",
     "player": "Sara Dabritz",
+    "team": "Real Madrid CF",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 150,
+    "number": "150",
     "player": "Signe Bruun",
+    "team": "Real Madrid CF",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 151,
+    "number": "151",
     "player": "Gio Garbelini",
+    "team": "Atlético de Madrid",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 152,
+    "number": "152",
     "player": "Giulia Gwinn",
+    "team": "FC Bayern München",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 153,
+    "number": "153",
     "player": "Lena Oberdorf",
+    "team": "FC Bayern München",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 154,
-    "player": "Klara Bühl",
+    "number": "154",
+    "player": "Klara Buhl",
+    "team": "FC Bayern München",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 155,
+    "number": "155",
     "player": "Pernille Harder",
+    "team": "FC Bayern München",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 156,
+    "number": "156",
     "player": "Svenja Huth",
+    "team": "VfL Wolfsburg",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 157,
+    "number": "157",
     "player": "Alexandra Popp",
+    "team": "VfL Wolfsburg",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 158,
+    "number": "158",
     "player": "Lineth Beerensteyn",
+    "team": "VfL Wolfsburg",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 159,
+    "number": "159",
     "player": "Wendie Renard",
+    "team": "OL Lyonnes",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 160,
+    "number": "160",
     "player": "Ingrid Engen",
+    "team": "OL Lyonnes",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 161,
+    "number": "161",
     "player": "Kadidiatou Diani",
+    "team": "OL Lyonnes",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 162,
+    "number": "162",
     "player": "Melchie Dumornay",
+    "team": "OL Lyonnes",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 163,
-    "player": "Marie Katoto",
+    "number": "163",
+    "player": "Marie-Antoinette Katoto",
+    "team": "OL Lyonnes",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 164,
+    "number": "164",
     "player": "Mary Earps",
+    "team": "Paris Saint-Germain",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 165,
+    "number": "165",
     "player": "Sakina Karchaoui",
+    "team": "Paris Saint-Germain",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 166,
+    "number": "166",
     "player": "Abi Brighton",
+    "team": "Juventus",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 167,
+    "number": "167",
     "player": "Barbara Bonansea",
+    "team": "Juventus",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 168,
+    "number": "168",
     "player": "Lucia Di Guglielmo",
+    "team": "AS Roma",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 169,
+    "number": "169",
     "player": "Alayah Pilgrim",
+    "team": "AS Roma",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 170,
+    "number": "170",
     "player": "Carole Costa",
+    "team": "SL Benfica",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 171,
+    "number": "171",
     "player": "Cristina Martin-Prieto",
+    "team": "SL Benfica",
+    "type": "Base",
     "section": "UEFA Women's Champions League"
   },
   {
-    "number": 172,
+    "number": "172",
     "player": "Milos Kerkez",
+    "team": "Liverpool",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 173,
+    "number": "173",
     "player": "Noni Madueke",
+    "team": "Arsenal",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 174,
+    "number": "174",
     "player": "Jérémy Doku",
+    "team": "Manchester City",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 175,
+    "number": "175",
     "player": "Alejandro Garnacho",
+    "team": "Chelsea",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 176,
+    "number": "176",
     "player": "Anthony Elanga",
+    "team": "Newcastle United",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 177,
+    "number": "177",
     "player": "Mohammed Kudus",
+    "team": "Tottenham Hotspur",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 178,
+    "number": "178",
     "player": "Callum Hudson-Odoi",
+    "team": "Nottingham Forest",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 179,
+    "number": "179",
     "player": "Yeremy Pino",
+    "team": "Crystal Palace",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 180,
+    "number": "180",
     "player": "Alejandro Balde",
+    "team": "FC Barcelona",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 181,
+    "number": "181",
     "player": "Trent Alexander-Arnold",
+    "team": "Real Madrid CF",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 182,
+    "number": "182",
     "player": "Alex Baena",
+    "team": "Atlético de Madrid",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 183,
+    "number": "183",
     "player": "Nico Williams",
+    "team": "Athletic Club",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 184,
+    "number": "184",
     "player": "Serge Gnabry",
+    "team": "FC Bayern München",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 185,
+    "number": "185",
     "player": "Lucas Vazquez",
+    "team": "Bayer 04 Leverkusen",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 186,
+    "number": "186",
     "player": "Ritsu Doan",
+    "team": "Eintracht Frankfurt",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 187,
+    "number": "187",
     "player": "Karim Adeyemi",
+    "team": "Borussia Dortmund",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 188,
-    "player": "Maximilian Mittelstädt",
+    "number": "188",
+    "player": "Maximilian Mittelstadt",
+    "team": "VfB Stuttgart",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 189,
+    "number": "189",
     "player": "Geovany Quenda",
+    "team": "Sporting Clube de Portugal",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 190,
+    "number": "190",
     "player": "Pepe",
+    "team": "FC Porto",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 191,
+    "number": "191",
     "player": "Bradley Barcola",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 192,
+    "number": "192",
     "player": "Maghnes Akliouche",
+    "team": "AS Monaco FC",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 193,
+    "number": "193",
     "player": "Dennis Man",
+    "team": "PSV Eindhoven",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 194,
+    "number": "194",
     "player": "Noa Lang",
+    "team": "SSC Napoli",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 195,
+    "number": "195",
     "player": "Denzel Dumfries",
+    "team": "FC Internazionale Milano",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 196,
+    "number": "196",
     "player": "Andrea Cambiaso",
+    "team": "Juventus",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 197,
+    "number": "197",
     "player": "Nicola Zalewski",
+    "team": "Atalanta",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 198,
+    "number": "198",
     "player": "Federico Bernardeschi",
+    "team": "Bologna FC 1909",
+    "type": "Insert",
     "section": "Wingman"
   },
   {
-    "number": 199,
+    "number": "199",
     "player": "Gianluigi Donnarumma",
+    "team": "Manchester City",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 200,
+    "number": "200",
     "player": "David De Gea",
+    "team": "ACF Fiorentina",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 201,
+    "number": "201",
     "player": "Gregor Kobel",
+    "team": "Borussia Dortmund",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 202,
+    "number": "202",
     "player": "Micky van de Ven",
+    "team": "Tottenham Hotspur",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 203,
+    "number": "203",
     "player": "Pau Cubarsi",
+    "team": "FC Barcelona",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 204,
+    "number": "204",
     "player": "Dean Huijsen",
+    "team": "Real Madrid CF",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 205,
+    "number": "205",
     "player": "Jarell Quansah",
+    "team": "Bayer 04 Leverkusen",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 206,
+    "number": "206",
     "player": "Alessandro Bastoni",
+    "team": "FC Internazionale Milano",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 207,
+    "number": "207",
     "player": "Ryan Flamingo",
+    "team": "PSV Eindhoven",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 208,
+    "number": "208",
     "player": "Dominik Szoboszlai",
+    "team": "Liverpool",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 209,
+    "number": "209",
     "player": "Enzo Fernandez",
+    "team": "Chelsea",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 210,
+    "number": "210",
     "player": "Fares Chaibi",
+    "team": "Eintracht Frankfurt",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 211,
+    "number": "211",
     "player": "Angelo Stiller",
+    "team": "VfB Stuttgart",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 212,
+    "number": "212",
     "player": "João Neves",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 213,
+    "number": "213",
     "player": "Kevin De Bruyne",
+    "team": "SSC Napoli",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 214,
+    "number": "214",
     "player": "Manu Kone",
+    "team": "AS Roma",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 215,
+    "number": "215",
     "player": "Richard Rios",
+    "team": "SL Benfica",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 216,
+    "number": "216",
     "player": "Rodrigo Mora",
+    "team": "FC Porto",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 217,
+    "number": "217",
     "player": "Bukayo Saka",
+    "team": "Arsenal",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 218,
+    "number": "218",
     "player": "Nick Woltemade",
+    "team": "Newcastle United",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 219,
+    "number": "219",
     "player": "Dan Ndoye",
+    "team": "Nottingham Forest",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 220,
+    "number": "220",
     "player": "Giacomo Raspadori",
+    "team": "Atlético de Madrid",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 221,
-    "player": "Iñaki Williams",
+    "number": "221",
+    "player": "Inaki Williams",
+    "team": "Athletic Club",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 222,
+    "number": "222",
     "player": "Jamal Musiala",
+    "team": "FC Bayern München",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 223,
+    "number": "223",
     "player": "Ansu Fati",
+    "team": "AS Monaco FC",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 224,
+    "number": "224",
     "player": "Jonathan David",
+    "team": "Juventus",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 225,
+    "number": "225",
     "player": "Santiago Castro",
+    "team": "Bologna FC 1909",
+    "type": "Insert",
     "section": "Pitch Perfection"
   },
   {
-    "number": 226,
+    "number": "226",
     "player": "Ryan Gravenberch",
+    "team": "Liverpool",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 227,
+    "number": "227",
     "player": "Martin Odegaard",
+    "team": "Arsenal",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 228,
+    "number": "228",
     "player": "Tijjani Reijnders",
+    "team": "Manchester City",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 229,
+    "number": "229",
     "player": "João Pedro",
+    "team": "Chelsea",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 230,
+    "number": "230",
     "player": "Anthony Gordon",
+    "team": "Newcastle United",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 231,
+    "number": "231",
     "player": "Brennan Johnson",
+    "team": "Tottenham Hotspur",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 232,
+    "number": "232",
     "player": "Ollie Watkins",
+    "team": "Aston Villa",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 233,
+    "number": "233",
     "player": "Morgan Gibbs-White",
+    "team": "Nottingham Forest",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 234,
+    "number": "234",
     "player": "Jean-Philippe Mateta",
+    "team": "Crystal Palace",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 235,
+    "number": "235",
     "player": "Dani Olmo",
+    "team": "FC Barcelona",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 236,
+    "number": "236",
     "player": "Federico Valverde",
+    "team": "Real Madrid CF",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 237,
+    "number": "237",
     "player": "Antoine Griezmann",
+    "team": "Atlético de Madrid",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 238,
+    "number": "238",
     "player": "Antony",
+    "team": "Real Betis Balompié",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 239,
+    "number": "239",
     "player": "Joshua Kimmich",
+    "team": "FC Bayern München",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 240,
+    "number": "240",
     "player": "Malik Tillman",
+    "team": "Bayer 04 Leverkusen",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 241,
+    "number": "241",
     "player": "Jonathan Burkardt",
+    "team": "Eintracht Frankfurt",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 242,
+    "number": "242",
     "player": "Ermedin Demirovic",
+    "team": "VfB Stuttgart",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 243,
+    "number": "243",
     "player": "Bradley Barcola",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 244,
+    "number": "244",
     "player": "Scott McTominay",
+    "team": "SSC Napoli",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 245,
+    "number": "245",
     "player": "Bremer",
+    "team": "Juventus",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 246,
+    "number": "246",
     "player": "Riccardo Orsolini",
+    "team": "Bologna FC 1909",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 247,
+    "number": "247",
     "player": "Paulo Dybala",
+    "team": "AS Roma",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 248,
+    "number": "248",
     "player": "Edin Dzeko",
+    "team": "ACF Fiorentina",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 249,
+    "number": "249",
     "player": "Morten Hjulmand",
+    "team": "Sporting Clube de Portugal",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 250,
+    "number": "250",
     "player": "Antonio Silva",
+    "team": "SL Benfica",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 251,
+    "number": "251",
     "player": "Samu Aghehowa",
+    "team": "FC Porto",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 252,
+    "number": "252",
     "player": "Ivan Perisic",
+    "team": "PSV Eindhoven",
+    "type": "Insert",
     "section": "Kings of Europe"
   },
   {
-    "number": 253,
+    "number": "253",
     "player": "Hugo Ekitike",
+    "team": "Liverpool",
+    "type": "Insert",
     "section": "Hat-Trick Hero"
   },
   {
-    "number": 254,
+    "number": "254",
     "player": "Viktor Gyökeres",
+    "team": "Arsenal",
+    "type": "Insert",
     "section": "Hat-Trick Hero"
   },
   {
-    "number": 255,
+    "number": "255",
     "player": "Morgan Rogers",
+    "team": "Aston Villa",
+    "type": "Insert",
     "section": "Hat-Trick Hero"
   },
   {
-    "number": 256,
+    "number": "256",
     "player": "Robert Lewandowski",
+    "team": "FC Barcelona",
+    "type": "Insert",
     "section": "Hat-Trick Hero"
   },
   {
-    "number": 257,
+    "number": "257",
     "player": "Rodrygo",
+    "team": "Real Madrid CF",
+    "type": "Insert",
     "section": "Hat-Trick Hero"
   },
   {
-    "number": 258,
+    "number": "258",
     "player": "Luis Diaz",
+    "team": "FC Bayern München",
+    "type": "Insert",
     "section": "Hat-Trick Hero"
   },
   {
-    "number": 259,
+    "number": "259",
     "player": "Serhou Guirassy",
+    "team": "Borussia Dortmund",
+    "type": "Insert",
     "section": "Hat-Trick Hero"
   },
   {
-    "number": 260,
+    "number": "260",
     "player": "Lautaro Martinez",
+    "team": "FC Internazionale Milano",
+    "type": "Insert",
     "section": "Hat-Trick Hero"
   },
   {
-    "number": 261,
+    "number": "261",
     "player": "Moise Kean",
+    "team": "ACF Fiorentina",
+    "type": "Insert",
     "section": "Hat-Trick Hero"
   },
   {
-    "number": 262,
+    "number": "262",
     "player": "Alexis Mac Allister",
-    "section": "Heritage: Man of the Match"
+    "team": "Liverpool",
+    "type": "Insert",
+    "section": "Topps Heritage - Man of the Match"
   },
   {
-    "number": 263,
+    "number": "263",
     "player": "Liam Delap",
-    "section": "Heritage: Man of the Match"
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Topps Heritage - Man of the Match"
   },
   {
-    "number": 264,
+    "number": "264",
     "player": "Randal Kolo Muani",
-    "section": "Heritage: Man of the Match"
+    "team": "Tottenham Hotspur",
+    "type": "Insert",
+    "section": "Topps Heritage - Man of the Match"
   },
   {
-    "number": 265,
+    "number": "265",
     "player": "Jules Kounde",
-    "section": "Heritage: Man of the Match"
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Topps Heritage - Man of the Match"
   },
   {
-    "number": 266,
+    "number": "266",
     "player": "Jonathan Tah",
-    "section": "Heritage: Man of the Match"
+    "team": "FC Bayern München",
+    "type": "Insert",
+    "section": "Topps Heritage - Man of the Match"
   },
   {
-    "number": 267,
+    "number": "267",
     "player": "Jobe Bellingham",
-    "section": "Heritage: Man of the Match"
+    "team": "Borussia Dortmund",
+    "type": "Insert",
+    "section": "Topps Heritage - Man of the Match"
   },
   {
-    "number": 268,
+    "number": "268",
     "player": "Vitinha",
-    "section": "Heritage: Man of the Match"
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
+    "section": "Topps Heritage - Man of the Match"
   },
   {
-    "number": 269,
+    "number": "269",
     "player": "Rasmus Højlund",
-    "section": "Heritage: Man of the Match"
+    "team": "SSC Napoli",
+    "type": "Insert",
+    "section": "Topps Heritage - Man of the Match"
   },
   {
-    "number": 270,
+    "number": "270",
     "player": "Manuel Akanji",
-    "section": "Heritage: Man of the Match"
+    "team": "FC Internazionale Milano",
+    "type": "Insert",
+    "section": "Topps Heritage - Man of the Match"
   },
   {
-    "number": 271,
+    "number": "271",
     "player": "Leah Williamson",
-    "section": "Heritage: Woman of the Match"
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "Topps Heritage - Woman of the Match"
   },
   {
-    "number": 272,
+    "number": "272",
     "player": "Beth Mead",
-    "section": "Heritage: Woman of the Match"
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "Topps Heritage - Woman of the Match"
   },
   {
-    "number": 273,
+    "number": "273",
     "player": "Sam Kerr",
-    "section": "Heritage: Woman of the Match"
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Topps Heritage - Woman of the Match"
   },
   {
-    "number": 274,
+    "number": "274",
     "player": "Elisabeth Terland",
-    "section": "Heritage: Woman of the Match"
+    "team": "Manchester United",
+    "type": "Insert",
+    "section": "Topps Heritage - Woman of the Match"
   },
   {
-    "number": 275,
+    "number": "275",
     "player": "Ewa Pajor",
-    "section": "Heritage: Woman of the Match"
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Topps Heritage - Woman of the Match"
   },
   {
-    "number": 276,
+    "number": "276",
     "player": "Linda Caicedo",
-    "section": "Heritage: Woman of the Match"
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Topps Heritage - Woman of the Match"
   },
   {
-    "number": 277,
+    "number": "277",
     "player": "Georgia Stanway",
-    "section": "Heritage: Woman of the Match"
+    "team": "FC Bayern München",
+    "type": "Insert",
+    "section": "Topps Heritage - Woman of the Match"
   },
   {
-    "number": 278,
+    "number": "278",
     "player": "Melchie Dumornay",
-    "section": "Heritage: Woman of the Match"
+    "team": "OL Lyonnes",
+    "type": "Insert",
+    "section": "Topps Heritage - Woman of the Match"
   },
   {
-    "number": 279,
+    "number": "279",
     "player": "Cristiana Girelli",
-    "section": "Heritage: Woman of the Match"
+    "team": "Juventus",
+    "type": "Insert",
+    "section": "Topps Heritage - Woman of the Match"
   },
   {
-    "number": 280,
+    "number": "280",
     "player": "David Raya",
+    "team": "Arsenal",
+    "type": "Insert",
     "section": "100 Club"
   },
   {
-    "number": 281,
+    "number": "281",
     "player": "Nuno Mendes",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
     "section": "100 Club"
   },
   {
-    "number": 282,
+    "number": "282",
     "player": "Moises Caicedo",
+    "team": "Chelsea",
+    "type": "Insert",
     "section": "100 Club"
   },
   {
-    "number": 283,
+    "number": "283",
     "player": "Michael Olise",
+    "team": "FC Bayern München",
+    "type": "Insert",
     "section": "100 Club"
   },
   {
-    "number": 284,
+    "number": "284",
     "player": "Lautaro Martinez",
+    "team": "FC Internazionale Milano",
+    "type": "Insert",
     "section": "100 Club"
   },
   {
-    "number": 285,
+    "number": "285",
     "player": "Lamine Yamal",
+    "team": "FC Barcelona",
+    "type": "Insert",
     "section": "100 Club"
   },
   {
-    "number": 286,
+    "number": "286",
     "player": "Hannah Hampton",
-    "section": "100 Club Women's"
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "100 Club UEFA Women's Champions League"
   },
   {
-    "number": 287,
+    "number": "287",
     "player": "Selma Bacha",
-    "section": "100 Club Women's"
+    "team": "OL Lyonnes",
+    "type": "Insert",
+    "section": "100 Club UEFA Women's Champions League"
   },
   {
-    "number": 288,
+    "number": "288",
     "player": "Patri Guijarro",
-    "section": "100 Club Women's"
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "100 Club UEFA Women's Champions League"
   },
   {
-    "number": 289,
+    "number": "289",
     "player": "Claudia Pina",
-    "section": "100 Club Women's"
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "100 Club UEFA Women's Champions League"
   },
   {
-    "number": 290,
+    "number": "290",
     "player": "Alessia Russo",
-    "section": "100 Club Women's"
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "100 Club UEFA Women's Champions League"
   },
   {
-    "number": 291,
+    "number": "291",
     "player": "Chloe Kelly",
-    "section": "100 Club Women's"
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "100 Club UEFA Women's Champions League"
   },
   {
-    "number": 292,
+    "number": "292",
     "player": "Iker Casillas",
+    "team": "Real Madrid CF",
+    "type": "Insert",
     "section": "100 Club Legend"
   },
   {
-    "number": 293,
+    "number": "293",
     "player": "John Terry",
+    "team": "Chelsea",
+    "type": "Insert",
     "section": "100 Club Legend"
   },
   {
-    "number": 294,
+    "number": "294",
     "player": "Andrea Pirlo",
+    "team": "Juventus",
+    "type": "Insert",
     "section": "100 Club Legend"
   },
   {
-    "number": 295,
+    "number": "295",
     "player": "Sergio Aguero",
+    "team": "Manchester City",
+    "type": "Insert",
     "section": "100 Club Legend"
   },
   {
-    "number": 296,
+    "number": "296",
     "player": "Gareth Bale",
+    "team": "Tottenham Hotspur",
+    "type": "Insert",
     "section": "100 Club Legend"
   },
   {
-    "number": 297,
+    "number": "297",
     "player": "Thierry Henry",
+    "team": "Arsenal",
+    "type": "Insert",
     "section": "100 Club Legend"
   },
   {
-    "number": 298,
+    "number": "298",
     "player": "Rio Ngumoha",
+    "team": "Liverpool",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 299,
+    "number": "299",
     "player": "Estêvão Willian",
+    "team": "Chelsea",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 300,
+    "number": "300",
     "player": "Lucas Bergvall",
+    "team": "Tottenham Hotspur",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 301,
+    "number": "301",
     "player": "Adam Wharton",
+    "team": "Crystal Palace",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 302,
+    "number": "302",
     "player": "Franco Mastantuono",
+    "team": "Real Madrid CF",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 303,
+    "number": "303",
     "player": "Arda Guler",
+    "team": "Real Madrid CF",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 304,
+    "number": "304",
     "player": "Tom Bischof",
+    "team": "FC Bayern München",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 305,
+    "number": "305",
     "player": "Desire Doue",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 306,
+    "number": "306",
     "player": "Pio Esposito",
+    "team": "FC Internazionale Milano",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 307,
+    "number": "307",
     "player": "Kenan Yildiz",
+    "team": "Juventus",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 308,
+    "number": "308",
     "player": "Paul Wanner",
+    "team": "PSV Eindhoven",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 309,
+    "number": "309",
     "player": "Vicky Lopez",
+    "team": "FC Barcelona",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 310,
+    "number": "310",
     "player": "Olivia Smith",
+    "team": "Arsenal",
+    "type": "Insert",
     "section": "Clutch Kids"
   },
   {
-    "number": 311,
+    "number": "311",
     "player": "UEFA Champions League",
-    "section": "Official Matchball"
+    "team": "-",
+    "type": "Insert",
+    "section": "UEFA Official Matchball"
   },
   {
-    "number": 312,
+    "number": "312",
     "player": "UEFA Europa League",
-    "section": "Official Matchball"
+    "team": "-",
+    "type": "Insert",
+    "section": "UEFA Official Matchball"
   },
   {
-    "number": 313,
+    "number": "313",
     "player": "UEFA Europa Conference League",
-    "section": "Official Matchball"
+    "team": "-",
+    "type": "Insert",
+    "section": "UEFA Official Matchball"
   },
   {
-    "number": 314,
+    "number": "314",
     "player": "UEFA Women's Champions League",
-    "section": "Official Matchball"
+    "team": "-",
+    "type": "Insert",
+    "section": "UEFA Official Matchball"
   },
   {
-    "number": 315,
+    "number": "315",
     "player": "Match Attax Extra",
-    "section": "Title Card"
+    "team": "-",
+    "type": "Insert",
+    "section": "Match Attax Extra Title Card"
   },
   {
-    "number": 316,
-    "player": "UEFA Champions League — Budapest 26",
-    "section": "2026 Finals"
+    "number": "316",
+    "player": "UEFA Champions League - Budapest",
+    "team": "-",
+    "type": "Insert",
+    "section": "UEFA 2026 Finals"
   },
   {
-    "number": 317,
-    "player": "UEFA Europa League — Istanbul",
-    "section": "2026 Finals"
+    "number": "317",
+    "player": "UEFA Europa League - Istanbul",
+    "team": "-",
+    "type": "Insert",
+    "section": "UEFA 2026 Finals"
   },
   {
-    "number": 318,
-    "player": "UEFA Europa Conference League — Leipzig",
-    "section": "2026 Finals"
+    "number": "318",
+    "player": "UEFA Europa Conference League - Leipzig",
+    "team": "-",
+    "type": "Insert",
+    "section": "UEFA 2026 Finals"
   },
   {
-    "number": 319,
-    "player": "UEFA Women's Champions League — Oslo 26",
-    "section": "2026 Finals"
+    "number": "319",
+    "player": "UEFA Women's Champions League - Oslo",
+    "team": "-",
+    "type": "Insert",
+    "section": "UEFA 2026 Finals"
+  },
+  {
+    "number": "BAB1",
+    "player": "Declan Rice",
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "Build-a-Baller Ultimate Baller"
+  },
+  {
+    "number": "BB1",
+    "player": "Alexander Isak",
+    "team": "Liverpool",
+    "type": "Insert",
+    "section": "Limited Edition - Blitz Ballerz"
+  },
+  {
+    "number": "BE1",
+    "player": "Florian Wirtz",
+    "team": "Liverpool",
+    "type": "Insert",
+    "section": "Black Edge Edition"
+  },
+  {
+    "number": "BF1",
+    "player": "Alejandro Garnacho",
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Black Fire Limited Edition"
+  },
+  {
+    "number": "CX1",
+    "player": "Virgil van Dijk",
+    "team": "Liverpool",
+    "type": "Insert",
+    "section": "Chrome X"
+  },
+  {
+    "number": "GL1",
+    "player": "Erling Haaland",
+    "team": "Manchester City",
+    "type": "Insert",
+    "section": "Limited Edition - Goaliaths"
+  },
+  {
+    "number": "GR1",
+    "player": "Card GR",
+    "team": "-",
+    "type": "Insert",
+    "section": "Gold Rush Ultra Limited Edition"
+  },
+  {
+    "number": "IN1",
+    "player": "Alexander Isak",
+    "team": "Liverpool",
+    "type": "Insert",
+    "section": "Infinity"
+  },
+  {
+    "number": "LE1",
+    "player": "Alexander Isak",
+    "team": "Liverpool",
+    "type": "Insert",
+    "section": "Limited Edition - Stadium Lights"
+  },
+  {
+    "number": "LESL1",
+    "player": "Alexander Isak",
+    "team": "Liverpool",
+    "type": "Insert",
+    "section": "Limited Edition - Stadium Lights"
+  },
+  {
+    "number": "LEXG1",
+    "player": "Thierry Henry",
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "X Greats Limited Edition"
+  },
+  {
+    "number": "PP1",
+    "player": "Hugo Ekitike",
+    "team": "Liverpool",
+    "type": "Insert",
+    "section": "Platinum Pull Limited Edition"
+  },
+  {
+    "number": "PRO1",
+    "player": "Eden Hazard",
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Facsimile Signature Style Pro View"
+  },
+  {
+    "number": "PS1",
+    "player": "Eberechi Eze",
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "Limited Edition - Psykicks"
+  },
+  {
+    "number": "XC1",
+    "player": "Mohamed Salah",
+    "team": "Liverpool",
+    "type": "Insert",
+    "section": "X-Calibre"
+  },
+  {
+    "number": "BAB2",
+    "player": "Jude Bellingham",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Build-a-Baller Ultimate Baller"
+  },
+  {
+    "number": "BB2",
+    "player": "Lamine Yamal",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Limited Edition - Blitz Ballerz"
+  },
+  {
+    "number": "BE2",
+    "player": "Viktor Gyökeres",
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "Black Edge Edition"
+  },
+  {
+    "number": "BF2",
+    "player": "Card BF",
+    "team": "-",
+    "type": "Insert",
+    "section": "Black Fire Limited Edition"
+  },
+  {
+    "number": "CX2",
+    "player": "Rodri",
+    "team": "Manchester City",
+    "type": "Insert",
+    "section": "Chrome X"
+  },
+  {
+    "number": "GL2",
+    "player": "Kylian Mbappé",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Limited Edition - Goaliaths"
+  },
+  {
+    "number": "GR2",
+    "player": "Jobe Bellingham",
+    "team": "Borussia Dortmund",
+    "type": "Insert",
+    "section": "Gold Rush Ultra Limited Edition"
+  },
+  {
+    "number": "IN2",
+    "player": "Cole Palmer",
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Infinity"
+  },
+  {
+    "number": "LE2",
+    "player": "Raphinha",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Limited Edition - Stadium Lights"
+  },
+  {
+    "number": "LESL2",
+    "player": "Raphinha",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Limited Edition - Stadium Lights"
+  },
+  {
+    "number": "LEXG2",
+    "player": "Lionel Messi",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "X Greats Limited Edition"
+  },
+  {
+    "number": "PP2",
+    "player": "Eberechi Eze",
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "Platinum Pull Limited Edition"
+  },
+  {
+    "number": "PRO2",
+    "player": "Frank Lampard",
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Facsimile Signature Style Pro View"
+  },
+  {
+    "number": "PS2",
+    "player": "Alexia Putellas",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Limited Edition - Psykicks"
+  },
+  {
+    "number": "XC2",
+    "player": "Antony",
+    "team": "Real Betis Balompié",
+    "type": "Insert",
+    "section": "X-Calibre"
+  },
+  {
+    "number": "BAB3",
+    "player": "Kevin De Bruyne",
+    "team": "SSC Napoli",
+    "type": "Insert",
+    "section": "Build-a-Baller Ultimate Baller"
+  },
+  {
+    "number": "BB3",
+    "player": "Désiré Doué",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
+    "section": "Limited Edition - Blitz Ballerz"
+  },
+  {
+    "number": "BE3",
+    "player": "Didier Drogba",
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Black Edge Edition"
+  },
+  {
+    "number": "BF3",
+    "player": "Card BF",
+    "team": "-",
+    "type": "Insert",
+    "section": "Black Fire Limited Edition"
+  },
+  {
+    "number": "CX3",
+    "player": "Estêvão Willian",
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Chrome X"
+  },
+  {
+    "number": "GL3",
+    "player": "Harry Kane",
+    "team": "FC Bayern München",
+    "type": "Insert",
+    "section": "Limited Edition - Goaliaths"
+  },
+  {
+    "number": "GR3",
+    "player": "Card GR",
+    "team": "-",
+    "type": "Insert",
+    "section": "Gold Rush Ultra Limited Edition"
+  },
+  {
+    "number": "IN3",
+    "player": "Xavi Simons",
+    "team": "Tottenham Hotspur",
+    "type": "Insert",
+    "section": "Infinity"
+  },
+  {
+    "number": "LE3",
+    "player": "Mohamed Salah",
+    "team": "Liverpool",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "LEXG3",
+    "player": "Toni Kroos",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "X Greats Limited Edition"
+  },
+  {
+    "number": "PP3",
+    "player": "Rayan Cherki",
+    "team": "Manchester City",
+    "type": "Insert",
+    "section": "Platinum Pull Limited Edition"
+  },
+  {
+    "number": "PRO3",
+    "player": "Lamine Yamal",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Facsimile Signature Style Pro View"
+  },
+  {
+    "number": "PS3",
+    "player": "Ousmane Dembélé",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
+    "section": "Limited Edition - Psykicks"
+  },
+  {
+    "number": "XC3",
+    "player": "Moise Kean",
+    "team": "ACF Fiorentina",
+    "type": "Insert",
+    "section": "X-Calibre"
+  },
+  {
+    "number": "BAB4",
+    "player": "Harry Kane",
+    "team": "FC Bayern München",
+    "type": "Insert",
+    "section": "Build-a-Baller Ultimate Baller"
+  },
+  {
+    "number": "BE4",
+    "player": "Raphinha",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Black Edge Edition"
+  },
+  {
+    "number": "BF4",
+    "player": "Card BF",
+    "team": "-",
+    "type": "Insert",
+    "section": "Black Fire Limited Edition"
+  },
+  {
+    "number": "CX4",
+    "player": "Marcus Rashford",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Chrome X"
+  },
+  {
+    "number": "GR4",
+    "player": "Bukayo Saka",
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "Gold Rush Ultra Limited Edition"
+  },
+  {
+    "number": "IN4",
+    "player": "Raphinha",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Infinity"
+  },
+  {
+    "number": "LE4",
+    "player": "Bukayo Saka",
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "LEXG4",
+    "player": "Diego Maradona",
+    "team": "SSC Napoli",
+    "type": "Insert",
+    "section": "X Greats Limited Edition"
+  },
+  {
+    "number": "PP4",
+    "player": "Pedri",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Platinum Pull Limited Edition"
+  },
+  {
+    "number": "PRO4",
+    "player": "Gareth Bale",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Facsimile Signature Style Pro View"
+  },
+  {
+    "number": "XC4",
+    "player": "Mariona Caldentey",
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "X-Calibre"
+  },
+  {
+    "number": "BAB5",
+    "player": "Ousmane Dembele",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
+    "section": "Build-a-Baller Ultimate Baller"
+  },
+  {
+    "number": "BE5",
+    "player": "Ronaldinho",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Black Edge Edition"
+  },
+  {
+    "number": "BF5",
+    "player": "Alessia Russo",
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "Black Fire Limited Edition"
+  },
+  {
+    "number": "CX5",
+    "player": "Kaka",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Chrome X"
+  },
+  {
+    "number": "GR5",
+    "player": "Jude Bellingham",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Gold Rush Ultra Limited Edition"
+  },
+  {
+    "number": "IN5",
+    "player": "Vini Jr.",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Infinity"
+  },
+  {
+    "number": "LE5",
+    "player": "Omar Marmoush",
+    "team": "Manchester City",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "PP5",
+    "player": "Kylian Mbappé",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Platinum Pull Limited Edition"
+  },
+  {
+    "number": "PRO5",
+    "player": "Giorgio Chiellini",
+    "team": "Juventus",
+    "type": "Insert",
+    "section": "Facsimile Signature Style Pro View"
+  },
+  {
+    "number": "XC5",
+    "player": "Ronaldo",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "X-Calibre"
+  },
+  {
+    "number": "BAB6",
+    "player": "Mohamed Salah",
+    "team": "Liverpool",
+    "type": "Insert",
+    "section": "Build-a-Baller Ultimate Baller"
+  },
+  {
+    "number": "BE6",
+    "player": "Raul",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Black Edge Edition"
+  },
+  {
+    "number": "CX6",
+    "player": "Thiago Alcantara",
+    "team": "FC Bayern München",
+    "type": "Insert",
+    "section": "Chrome X"
+  },
+  {
+    "number": "IN6",
+    "player": "Julian Alvarez",
+    "team": "Atlético de Madrid",
+    "type": "Insert",
+    "section": "Infinity"
+  },
+  {
+    "number": "LE6",
+    "player": "Estevao Willian",
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "PP6",
+    "player": "Luis Diaz",
+    "team": "FC Bayern München",
+    "type": "Insert",
+    "section": "Platinum Pull Limited Edition"
+  },
+  {
+    "number": "BAB7",
+    "player": "Lamine Yamal",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Build-a-Baller Ultimate Baller"
+  },
+  {
+    "number": "BE7",
+    "player": "Luis Diaz",
+    "team": "FC Bayern München",
+    "type": "Insert",
+    "section": "Black Edge Edition"
+  },
+  {
+    "number": "CX7",
+    "player": "Khvicha Kvaratskhelia",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
+    "section": "Chrome X"
+  },
+  {
+    "number": "IN7",
+    "player": "Harry Kane",
+    "team": "FC Bayern München",
+    "type": "Insert",
+    "section": "Infinity"
+  },
+  {
+    "number": "LE7",
+    "player": "Anthony Gordon",
+    "team": "Newcastle United",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "PP7",
+    "player": "Vitinha",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
+    "section": "Platinum Pull Limited Edition"
+  },
+  {
+    "number": "BAB8",
+    "player": "Kylian Mbappe",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Build-a-Baller Ultimate Baller"
+  },
+  {
+    "number": "BE8",
+    "player": "Romelu Lukaku",
+    "team": "SSC Napoli",
+    "type": "Insert",
+    "section": "Black Edge Edition"
+  },
+  {
+    "number": "CX8",
+    "player": "Francesco Totti",
+    "team": "AS Roma",
+    "type": "Insert",
+    "section": "Chrome X"
+  },
+  {
+    "number": "IN8",
+    "player": "Khvicha Kvaratskhelia",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
+    "section": "Infinity"
+  },
+  {
+    "number": "LE8",
+    "player": "Donyell Malen",
+    "team": "Aston Villa",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "PP8",
+    "player": "Paulo Dybala",
+    "team": "AS Roma",
+    "type": "Insert",
+    "section": "Platinum Pull Limited Edition"
+  },
+  {
+    "number": "BAB9",
+    "player": "Erling Haaland",
+    "team": "Manchester City",
+    "type": "Insert",
+    "section": "Build-a-Baller Ultimate Baller"
+  },
+  {
+    "number": "BE9",
+    "player": "Adriano",
+    "team": "FC Internazionale Milano",
+    "type": "Insert",
+    "section": "Black Edge Edition"
+  },
+  {
+    "number": "CX9",
+    "player": "Aitana Bonmati",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Chrome X"
+  },
+  {
+    "number": "IN9",
+    "player": "Kevin De Bruyne",
+    "team": "SSC Napoli",
+    "type": "Insert",
+    "section": "Infinity"
+  },
+  {
+    "number": "LE9",
+    "player": "Marcus Rashford",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "PP9",
+    "player": "Aitana Bonmatí",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Platinum Pull Limited Edition"
+  },
+  {
+    "number": "CX10",
+    "player": "Zlatan Ibrahimovic",
+    "team": "Paris Saint-Germain",
+    "type": "Insert",
+    "section": "Crome X"
+  },
+  {
+    "number": "IN10",
+    "player": "Lamine Yamal",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Infinity"
+  },
+  {
+    "number": "LE10",
+    "player": "Vini Jr.",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "LE11",
+    "player": "Julian Alvarez",
+    "team": "Atlético de Madrid",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "LE12",
+    "player": "Serhou Guirassy",
+    "team": "Borussia Dortmund",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "LE13",
+    "player": "Jonathan Burkardt",
+    "team": "Eintracht Frankfurt",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "LE14",
+    "player": "Paul Pogba",
+    "team": "AS Monaco FC",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "LE15",
+    "player": "Marcus Thuram",
+    "team": "FC Internazionale Milano",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "LE16",
+    "player": "Matias Soulé",
+    "team": "AS Roma",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "LE17",
+    "player": "Lauren James",
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "LE18",
+    "player": "Caroline Graham Hansen",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Limited Edition - ElectriX"
+  },
+  {
+    "number": "AC-BM",
+    "player": "Beth Mead",
+    "team": "Arsenal",
+    "type": "Autograph",
+    "section": "Genuine Autograph"
+  },
+  {
+    "number": "AC-SM",
+    "player": "Scott McTominay",
+    "team": "SSC Napoli",
+    "type": "Autograph",
+    "section": "Genuine Autograph"
+  },
+  {
+    "number": "JR-AP",
+    "player": "Alexia Putellas",
+    "team": "FC Barcelona",
+    "type": "Memorabilia",
+    "section": "Player-Worn Jersey Relic"
+  },
+  {
+    "number": "JR-FC",
+    "player": "Francisco Conceição",
+    "team": "Juventus",
+    "type": "Memorabilia",
+    "section": "Player-Worn Jersey Relic"
+  },
+  {
+    "number": "JR-LJ",
+    "player": "Lauren James",
+    "team": "Chelsea",
+    "type": "Memorabilia",
+    "section": "Player-Worn Jersey Relic"
+  },
+  {
+    "number": "JR-R",
+    "player": "Raphinha",
+    "team": "FC Barcelona",
+    "type": "Memorabilia",
+    "section": "Player-Worn Jersey Relic"
+  },
+  {
+    "number": "JR-VvD",
+    "player": "Virgil van Dijk",
+    "team": "Liverpool",
+    "type": "Memorabilia",
+    "section": "Player-Worn Jersey Relic"
+  },
+  {
+    "number": "PS-MO",
+    "player": "Michael Olise",
+    "team": "FC Bayern München",
+    "type": "Insert",
+    "section": "3D X-Lens Phase Shifter"
+  },
+  {
+    "number": "PS-VG",
+    "player": "Viktor Gyökeres",
+    "team": "Arsenal",
+    "type": "Insert",
+    "section": "3D X-Lens Phase Shifter"
+  },
+  {
+    "number": "PVO-EH",
+    "player": "Eden Hazard",
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Pro-View Original"
+  },
+  {
+    "number": "PVO-FL",
+    "player": "Frank Lampard",
+    "team": "Chelsea",
+    "type": "Insert",
+    "section": "Pro-View Original"
+  },
+  {
+    "number": "PVO-GB",
+    "player": "Gareth Bale",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Pro-View Original"
+  },
+  {
+    "number": "PVO-GC",
+    "player": "Giorgio Chiellini",
+    "team": "Juventus",
+    "type": "Insert",
+    "section": "Pro-View Original"
+  },
+  {
+    "number": "PVO-LY",
+    "player": "Lamine Yamal",
+    "team": "FC Barcelona",
+    "type": "Insert",
+    "section": "Pro-View Original"
+  },
+  {
+    "number": "RE-DB",
+    "player": "Sir David Beckham",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Royal Elite Limited Edition"
+  },
+  {
+    "number": "RE-DB-p",
+    "player": "Sir David Beckham",
+    "team": "Real Madrid CF",
+    "type": "Insert",
+    "section": "Royal Elite Limited Edition – Parallel"
+  },
+  {
+    "number": "UCLD-AI",
+    "player": "Andrés Iniesta",
+    "team": "FC Barcelona",
+    "type": "Memorabilia",
+    "section": "UCL Decades Relic"
+  },
+  {
+    "number": "UCLD-CA",
+    "player": "Carlo Ancelotti",
+    "team": "Real Madrid CF",
+    "type": "Memorabilia",
+    "section": "UCL Decades Relic"
+  },
+  {
+    "number": "UCLD-DC",
+    "player": "Daniel Carvajal",
+    "team": "Real Madrid CF",
+    "type": "Memorabilia",
+    "section": "UCL Decades Relic"
+  },
+  {
+    "number": "UCLD-DD",
+    "player": "Didier Drogba",
+    "team": "Chelsea",
+    "type": "Memorabilia",
+    "section": "UCL Decades Relic"
+  },
+  {
+    "number": "UCLD-FR",
+    "player": "Franck Ribéry",
+    "team": "FC Bayern München",
+    "type": "Memorabilia",
+    "section": "UCL Decades Relic"
+  },
+  {
+    "number": "UCLD-LM",
+    "player": "Luka Modric",
+    "team": "Real Madrid CF",
+    "type": "Memorabilia",
+    "section": "UCL Decades Relic"
+  },
+  {
+    "number": "UCLD-M",
+    "player": "Marcelo",
+    "team": "Real Madrid CF",
+    "type": "Memorabilia",
+    "section": "UCL Decades Relic"
+  },
+  {
+    "number": "UCLD-MS",
+    "player": "Mohamed Salah",
+    "team": "Liverpool",
+    "type": "Memorabilia",
+    "section": "UCL Decades Relic"
+  },
+  {
+    "number": "UCLD-TA",
+    "player": "Thiago Alcantara",
+    "team": "FC Bayern München",
+    "type": "Memorabilia",
+    "section": "UCL Decades Relic"
   }
 ]
