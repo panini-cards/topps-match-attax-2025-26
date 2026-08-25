@@ -438,8 +438,8 @@ body::after {
 }
 .s-row:hover { background: var(--smoke); }
 .s-row.active { background: var(--ink); color: #fff; }
-.s-row.complete { color: var(--green); font-weight: 500; }
-.s-row.complete-incoming { color: var(--amber); font-weight: 500; }
+.s-row.complete { background: rgba(16,185,129,.1); color: var(--green); font-weight: 600; }
+.s-row.complete-incoming { background: rgba(245,158,11,.1); color: var(--incoming-fg); font-weight: 600; }
 
 .s-dot {
   width: 7px; height: 7px;
@@ -1264,7 +1264,7 @@ window.__app = {
 
   let checklist;
   try {
-    const r=await fetch('checklist.json');
+    const r=await fetch('https://panini-cards.github.io/topps-match-attax-2025-26/checklist.json');
     if(!r.ok) throw new Error('HTTP '+r.status);
     checklist=await r.json();
     if(!Array.isArray(checklist)||!checklist.length) throw new Error('Empty');
