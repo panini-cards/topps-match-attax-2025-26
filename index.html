@@ -1,1284 +1,1601 @@
 <!doctype html>
-<html lang="en" data-theme="auto">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Topps Match Attax Extra 2025/26 — Tracker</title>
-  <script>
-    // Apply saved theme BEFORE CSS parses to avoid a flash of the wrong theme.
-    (function() {
-      try {
-        const t = localStorage.getItem('topps_ma2526_theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-      } catch (_) { /* storage disabled — stay on auto */ }
-    })();
-  </script>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #1a1a1a;
-      --muted: #666;
-      --border: #e0e0e0;
-      --owned-bg: #e8f0fe;
-      --owned-fg: #1a56db;
-      --accent: #1a56db;
-      --accent-soft: #dbeafe;
-      --header-grad-1: #0f2d6b;
-      --header-grad-2: #1a56db;
-      --sec-squad:     #1a56db;
-      --sec-manager:   #7c3aed;
-      --sec-awaykit:   #0891b2;
-      --sec-womens:    #db2777;
-      --sec-wingman:   #059669;
-      --sec-pitch:     #d97706;
-      --sec-kings:     #dc2626;
-      --sec-hattrick:  #ea580c;
-      --sec-heritage:  #7c3aed;
-      --sec-100club:   #f59e0b;
-      --sec-clutch:    #10b981;
-      --sec-special:   #6366f1;
-    }
-    @media (prefers-color-scheme: dark) {
-      [data-theme="auto"] {
-        --bg: #0f1117;
-        --fg: #eaeaea;
-        --muted: #999;
-        --border: #2a2a3a;
-        --owned-bg: #0d2047;
-        --owned-fg: #60a5fa;
-        --accent: #60a5fa;
-        --accent-soft: #1e3a5f;
-        --header-grad-1: #060d1f;
-        --header-grad-2: #0f2d6b;
-      }
-    }
-    [data-theme="dark"] {
-      --bg: #0f1117;
-      --fg: #eaeaea;
-      --muted: #999;
-      --border: #2a2a3a;
-      --owned-bg: #0d2047;
-      --owned-fg: #60a5fa;
-      --accent: #60a5fa;
-      --accent-soft: #1e3a5f;
-      --header-grad-1: #060d1f;
-      --header-grad-2: #0f2d6b;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; font-family: system-ui, sans-serif;
-      background: var(--bg); color: var(--fg);
-      background-image:
-        radial-gradient(circle at 1px 1px, var(--accent-soft) 1px, transparent 0);
-      background-size: 24px 24px;
-      background-attachment: fixed;
-    }
-    header {
-      padding: 1rem;
-      border-bottom: 2px solid var(--accent);
-      background: linear-gradient(135deg, var(--header-grad-1), var(--header-grad-2));
-      color: #fff;
-    }
-    header h1 {
-      margin: 0 0 .25rem;
-      font-size: 1.15rem;
-      letter-spacing: .02em;
-      font-weight: 700;
-    }
-    header h1::before { content: '🃏 '; }
-    header .overall { color: #fff; }
-    header .overall .pct { color: rgba(255,255,255,.75); }
-    header .bar { background: rgba(255,255,255,.2); }
-    header .bar > div { background: #fff; }
-    header .legend { color: rgba(255,255,255,.85); }
-    header h1 { margin: 0; }
-    header .subtitle {
-      font-size: .7rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      opacity: .85;
-      margin-top: .1rem;
-      margin-bottom: .35rem;
-    }
-    .overall { font-size: 2rem; font-weight: 700; }
-    .overall .pct { font-size: 1rem; color: var(--muted); margin-left: .5rem; }
-    .bar { height: 6px; background: var(--border); border-radius: 3px; margin-top: .5rem; overflow: hidden; }
-    .bar > div { height: 100%; background: var(--owned-fg); transition: width .2s; }
-    main { display: grid; grid-template-columns: 300px 1fr; gap: 1rem; padding: 1rem; align-items: start; }
-    @media (max-width: 700px) { main { grid-template-columns: 1fr; } }
-    #grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: .5rem; align-content: start; }
-    .tile {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: .5rem;
-      font-size: .8rem;
-      cursor: pointer;
-      user-select: none;
-      opacity: .55;
-      background: var(--bg);
-      min-height: 4.75rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-    .tile.owned { opacity: 1; background: var(--owned-bg); border-color: var(--owned-fg); }
-    .tile.reserved {
-      opacity: 1;
-      background: #fff1de;
-      border-color: #e6811a;
-    }
-    [data-theme="dark"] .tile.reserved { background: #3a2a10; border-color: #e6811a; }
-    @media (prefers-color-scheme: dark) {
-      [data-theme="auto"] .tile.reserved { background: #3a2a10; border-color: #e6811a; }
-    }
-    .tile .rsv { color: #e6811a; font-size: .7rem; margin-left: .2rem; font-weight: 600; }
-    .tile .num { font-weight: 700; }
-    .tile .name { display: block; margin-top: .25rem; padding-right: 1rem; }
-    .tile .meta { color: var(--muted); font-size: .7rem; margin-top: auto; }
-    .tile .sec-badge {
-      position: absolute; top: .35rem; right: .35rem;
-      width: .55rem; height: .55rem; border-radius: 2px;
-    }
-    /* Section colour dots */
-    .sec-squad-update       { background: var(--sec-squad); }
-    .sec-manager            { background: var(--sec-manager); }
-    .sec-away-kit           { background: var(--sec-awaykit); }
-    .sec-womens             { background: var(--sec-womens); }
-    .sec-wingman            { background: var(--sec-wingman); }
-    .sec-pitch-perfection   { background: var(--sec-pitch); }
-    .sec-kings-of-europe    { background: var(--sec-kings); }
-    .sec-hat-trick-hero     { background: var(--sec-hattrick); }
-    .sec-heritage-mom       { background: var(--sec-heritage); }
-    .sec-heritage-wom       { background: var(--sec-heritage); }
-    .sec-100-club           { background: var(--sec-100club); }
-    .sec-100-club-w         { background: var(--sec-100club); }
-    .sec-100-club-legend    { background: var(--sec-100club); }
-    .sec-clutch-kids        { background: var(--sec-clutch); }
-    .sec-special            { background: var(--sec-special); }
-    .tile .dup { color: var(--muted); font-size: .7rem; margin-left: .2rem; font-weight: normal; }
-    .banner {
-      background: #fff3cd; color: #664d03;
-      padding: .5rem 1rem;
-      border-bottom: 1px solid #d5a900;
-      font-size: .85rem;
-    }
-    .banner.error {
-      background: #f8d7da; color: #58151c;
-      border-bottom-color: #b02a37;
-    }
-    .banner button {
-      margin-left: .5rem; padding: .2rem .5rem;
-      background: transparent; color: inherit;
-      border: 1px solid currentColor; border-radius: 4px;
-      cursor: pointer; font: inherit; font-size: .8rem;
-    }
-    @media (prefers-color-scheme: dark) {
-      [data-theme="auto"] .banner { background: #3a2e00; color: #fbe9a0; border-bottom-color: #6b5100; }
-      [data-theme="auto"] .banner.error { background: #4a1a1e; color: #f5b7bd; border-bottom-color: #a3444d; }
-    }
-    [data-theme="dark"] .banner { background: #3a2e00; color: #fbe9a0; border-bottom-color: #6b5100; }
-    [data-theme="dark"] .banner.error { background: #4a1a1e; color: #f5b7bd; border-bottom-color: #a3444d; }
-    #toolbar {
-      position: sticky; top: 0; z-index: 5;
-      background: var(--bg); border-bottom: 1px solid var(--border);
-      padding: .5rem 1rem; display: flex; gap: 1rem; align-items: center;
-      flex-wrap: wrap;
-    }
-    #quickAddForm { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
-    #quickAddForm input {
-      padding: .3rem .5rem; font: inherit; color: var(--fg);
-      background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
-      min-width: 220px;
-    }
-    #quickAddForm button {
-      padding: .3rem .8rem; cursor: pointer;
-      background: var(--owned-fg); color: white; border: 0; border-radius: 4px;
-    }
-    #quickAddForm button:hover { filter: brightness(1.1); }
-    #quickAddForm .err { color: #b00020; font-size: .8rem; }
-    @media (prefers-color-scheme: dark) {
-      [data-theme="auto"] #quickAddForm .err { color: #f5b7bd; }
-    }
-    [data-theme="dark"] #quickAddForm .err { color: #f5b7bd; }
-    .toast {
-      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
-      background: var(--owned-fg); color: white;
-      padding: .5rem 1rem; border-radius: 4px;
-      opacity: 0; transition: opacity .3s;
-      pointer-events: none; z-index: 20;
-    }
-    .toast.show { opacity: 1; }
-    #summary h3 {
-      margin: .8rem 0 .4rem;
-      font-size: .8rem;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      color: var(--muted);
-    }
-    #summary h3:first-child { margin-top: 0; }
-    .summary-row {
-      display: grid; grid-template-columns: 1fr 70px 60px;
-      gap: .5rem; align-items: center;
-      padding: .25rem .3rem;
-      cursor: pointer;
-      font-size: .8rem;
-      border-radius: 4px;
-    }
-    .summary-row .lbl {
-      font-weight: 600;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      min-width: 0;
-      display: flex;
-      align-items: center;
-      gap: .35rem;
-    }
-    .lbl-dot {
-      display: inline-block;
-      width: .55rem; height: .55rem; border-radius: 2px;
-      flex-shrink: 0;
-    }
-    .summary-row:hover { background: rgba(127,127,127,.1); }
-    .summary-row.active { background: var(--owned-bg); }
-    .summary-row.complete { background: var(--owned-bg); }
-    .summary-row.complete .lbl { color: var(--owned-fg); }
-    .summary-row.complete .num { color: var(--owned-fg); font-weight: 600; }
-    .summary-row.complete.active { outline: 2px solid var(--owned-fg); outline-offset: -2px; }
-    .summary-row.complete-incoming { background: #fff1de; }
-    .summary-row.complete-incoming .lbl { color: #e6811a; }
-    .summary-row.complete-incoming .num { color: #e6811a; font-weight: 600; }
-    .summary-row.complete-incoming .bar > div { background: #e6811a; }
-    .summary-row.complete-incoming.active { outline: 2px solid #e6811a; outline-offset: -2px; }
-    [data-theme="dark"] .summary-row.complete-incoming { background: #3a2a10; }
-    @media (prefers-color-scheme: dark) {
-      [data-theme="auto"] .summary-row.complete-incoming { background: #3a2a10; }
-    }
-    .summary-row .num { color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
-    .summary-row .bar { height: 4px; margin: 0; }
-    #clearFilter {
-      margin-top: 1rem;
-      padding: .3rem .6rem;
-      background: transparent; color: var(--fg);
-      border: 1px solid var(--border); border-radius: 4px;
-      cursor: pointer; font: inherit;
-    }
-    #clearFilter:hover { background: rgba(127,127,127,.1); }
-    #searchInput {
-      padding: .3rem .5rem; font: inherit; color: var(--fg);
-      background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
-      min-width: 360px;
-    }
-    #chips { display: flex; gap: .25rem; flex-wrap: wrap; }
-    .chip {
-      padding: .3rem .7rem;
-      background: var(--bg); color: var(--fg);
-      border: 1px solid var(--border); border-radius: 999px;
-      cursor: pointer; font: inherit; font-size: .8rem;
-    }
-    .chip:hover { background: rgba(127,127,127,.1); }
-    .chip.active { background: var(--owned-fg); color: white; border-color: var(--owned-fg); }
-    #exportMenu { position: relative; }
-    #exportMenu > summary {
-      list-style: none; cursor: pointer;
-      padding: .3rem .6rem; border: 1px solid var(--border); border-radius: 4px;
-      font-size: .8rem; user-select: none;
-    }
-    #exportMenu > summary::-webkit-details-marker { display: none; }
-    #exportMenu ul {
-      position: absolute; right: 0; top: 100%;
-      background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
-      list-style: none; margin: .2rem 0 0; padding: .25rem;
-      z-index: 10; min-width: 160px;
-      box-shadow: 0 2px 8px rgba(0,0,0,.15);
-    }
-    #exportMenu li { list-style: none; }
-    #exportMenu li button {
-      display: block; width: 100%; text-align: left;
-      padding: .3rem .5rem;
-      background: transparent; color: var(--fg);
-      border: 0; border-radius: 4px;
-      cursor: pointer; font: inherit; font-size: .8rem;
-    }
-    #exportMenu li button:hover { background: rgba(127,127,127,.1); }
-    .import-lbl {
-      cursor: pointer;
-      padding: .3rem .6rem; border: 1px solid var(--border); border-radius: 4px;
-      font-size: .8rem;
-    }
-    .import-lbl:hover { background: rgba(127,127,127,.1); }
-    .theme-toggle {
-      cursor: pointer;
-      padding: .3rem .6rem;
-      background: var(--bg); color: var(--fg);
-      border: 1px solid var(--border); border-radius: 4px;
-      font: inherit; font-size: .8rem;
-    }
-    .theme-toggle:hover { background: rgba(127,127,127,.1); }
-    dialog {
-      border: 1px solid var(--border); border-radius: 8px;
-      background: var(--bg); color: var(--fg);
-      padding: 1.25rem; max-width: 420px; width: 95vw;
-    }
-    dialog::backdrop { background: rgba(0,0,0,.4); }
-    dialog h3 { margin: 0 0 .8rem; }
-    dialog menu { display: flex; gap: .5rem; justify-content: flex-end; margin: .8rem 0 0; padding: 0; }
-    dialog menu button {
-      padding: .35rem .8rem; font: inherit; font-size: .9rem;
-      border-radius: 4px; cursor: pointer;
-      border: 1px solid var(--border);
-      background: transparent; color: var(--fg);
-    }
-    dialog menu button:first-child { background: var(--owned-fg); color: white; border-color: var(--owned-fg); }
-    dialog menu button:first-child:hover { filter: brightness(1.1); }
-    #textModal { max-width: 580px; }
-    #textModal textarea {
-      width: 100%; font-family: monospace; font-size: .8rem;
-      background: var(--bg); color: var(--fg);
-      border: 1px solid var(--border); border-radius: 4px;
-      padding: .4rem;
-      resize: vertical;
-    }
-    .legend {
-      display: flex; flex-wrap: wrap;
-      gap: .8rem;
-      margin-top: .5rem;
-      font-size: .75rem;
-      color: rgba(255,255,255,.85);
-    }
-    .legend-item { display: inline-flex; align-items: center; gap: .3rem; }
-    .sec-swatch {
-      display: inline-block;
-      width: .6rem; height: .6rem; border-radius: 2px;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Match Attax 25/26 · Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS ─────────────────────────────────────────── */
+:root {
+  --ink:    #0a0a0f;
+  --paper:  #f5f4f0;
+  --smoke:  #e8e6df;
+  --mist:   #d0cdc4;
+  --dim:    #9996908;
+  --soft:   #706d65;
+  --body:   #3a3730;
+  --title:  #1a1814;
+
+  --blue:   #2563FF;
+  --blue2:  #1d4ed8;
+  --violet: #7c3aed;
+  --pink:   #ec4899;
+  --amber:  #f59e0b;
+  --green:  #10b981;
+  --red:    #ef4444;
+  --cyan:   #06b6d4;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+  --r-full: 999px;
+  --f-display: 'Syne', sans-serif;
+  --f-body: 'DM Sans', system-ui, sans-serif;
+}
+
+/* ─── RESET ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f-body);
+  background: var(--paper);
+  color: var(--body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── NOISE TEXTURE OVERLAY ──────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+/* ─── HERO HEADER ────────────────────────────────────── */
+#hero {
+  position: relative;
+  background: var(--ink);
+  color: #fff;
+  overflow: hidden;
+  padding: 3rem 2.5rem 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 100% 80% at 70% 110%, rgba(37,99,255,.5) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 60% at 0% 0%,   rgba(124,58,237,.4) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 100% 0%,  rgba(236,72,153,.25) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-brand {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.hero-eyebrow {
+  font-family: var(--f-display);
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+}
+
+.hero-title {
+  font-family: var(--f-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: .95;
+  letter-spacing: -.03em;
+  color: #fff;
+}
+
+.hero-title em {
+  font-style: normal;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: .9rem;
+  color: rgba(255,255,255,.45);
+  margin-top: .4rem;
+  font-weight: 400;
+}
+
+/* Big stats row */
+.hero-stats {
+  display: flex;
+  gap: 0;
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.hero-stat {
+  flex: 1;
+  padding: 1.4rem 1.5rem;
+  border-right: 1px solid rgba(255,255,255,.08);
+  position: relative;
+  cursor: default;
+}
+.hero-stat:last-child { border-right: none; }
+
+.hero-stat-label {
+  font-size: .65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  color: rgba(255,255,255,.35);
+  margin-bottom: .3rem;
+}
+
+.hero-stat-value {
+  font-family: var(--f-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.hero-stat-sub {
+  font-size: .75rem;
+  color: rgba(255,255,255,.4);
+  margin-top: .2rem;
+}
+
+.hero-stat.accent .hero-stat-value {
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Progress bar across full hero bottom */
+.hero-progress {
+  height: 3px;
+  background: rgba(255,255,255,.1);
+  margin-top: -.5px;
+}
+.hero-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  transition: width .6s cubic-bezier(.4,0,.2,1);
+}
+
+/* Header actions (theme + import/export) */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding-top: .25rem;
+}
+
+.icon-btn {
+  width: 38px; height: 38px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.7);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  transition: background .15s, border-color .15s;
+  flex-shrink: 0;
+}
+.icon-btn:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.2); }
+
+/* ─── TOOLBAR ────────────────────────────────────────── */
+#toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(245,244,240,.92);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid var(--smoke);
+  padding: .7rem 2.5rem;
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Search */
+.search-pill {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 340px;
+}
+.search-pill svg {
+  position: absolute;
+  left: .85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px; height: 15px;
+  color: var(--soft);
+  pointer-events: none;
+}
+#searchInput {
+  width: 100%;
+  height: 38px;
+  padding: 0 .75rem 0 2.4rem;
+  border-radius: var(--r-full);
+  border: 1.5px solid var(--smoke);
+  background: #fff;
+  font: inherit;
+  font-size: .85rem;
+  color: var(--title);
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+#searchInput:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,255,.1); }
+#searchInput::placeholder { color: var(--mist); }
+
+/* Quick add */
+#quickAddForm { display: flex; gap: .4rem; align-items: center; }
+#quickAdd {
+  height: 38px;
+  padding: 0 .75rem;
+  border-radius: var(--r-full);
+  border: 1.5px solid var(--smoke);
+  background: #fff;
+  font: inherit;
+  font-size: .85rem;
+  color: var(--title);
+  width: 170px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+#quickAdd:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,255,.1); }
+#quickAdd::placeholder { color: var(--mist); }
+
+.add-btn {
+  height: 38px;
+  padding: 0 1rem;
+  border-radius: var(--r-full);
+  border: none;
+  background: var(--blue);
+  color: #fff;
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+  white-space: nowrap;
+}
+.add-btn:hover { background: var(--blue2); }
+.add-btn:active { transform: scale(.97); }
+#quickAddError { font-size: .75rem; color: var(--red); white-space: nowrap; }
+
+/* Filter chips */
+#chips { display: flex; gap: .3rem; }
+.chip {
+  height: 34px;
+  padding: 0 .85rem;
+  border-radius: var(--r-full);
+  border: 1.5px solid var(--smoke);
+  background: transparent;
+  color: var(--soft);
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+  letter-spacing: .02em;
+}
+.chip:hover { background: var(--smoke); color: var(--title); }
+.chip.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+/* Export dropdown */
+#exportMenu { position: relative; }
+#exportMenu > summary { list-style: none; cursor: pointer; }
+#exportMenu > summary::-webkit-details-marker { display: none; }
+.tb-btn {
+  height: 38px;
+  padding: 0 .9rem;
+  border-radius: var(--r-full);
+  border: 1.5px solid var(--smoke);
+  background: #fff;
+  color: var(--body);
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  transition: border-color .15s, background .15s;
+  white-space: nowrap;
+}
+.tb-btn:hover { background: var(--smoke); border-color: var(--mist); }
+#exportMenu ul {
+  position: absolute;
+  right: 0; top: calc(100% + .5rem);
+  background: #fff;
+  border: 1.5px solid var(--smoke);
+  border-radius: var(--r-lg);
+  list-style: none;
+  padding: .5rem;
+  z-index: 200;
+  min-width: 190px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+  animation: pop-in .12s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes pop-in {
+  from { opacity:0; transform:scale(.94) translateY(-4px); }
+  to   { opacity:1; transform:scale(1) translateY(0); }
+}
+#exportMenu li button {
+  display: flex; align-items: center; gap: .55rem;
+  width: 100%; text-align: left;
+  padding: .5rem .7rem;
+  background: transparent; color: var(--body);
+  border: 0; border-radius: var(--r-sm);
+  cursor: pointer; font: inherit; font-size: .85rem;
+  transition: background .1s;
+}
+#exportMenu li button:hover { background: var(--smoke); }
+
+.import-lbl { cursor: pointer; }
+.import-lbl input { display: none; }
+
+/* ─── MAIN LAYOUT ────────────────────────────────────── */
+#layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  #layout { grid-template-columns: 1fr; }
+  #sidebar { display: none; }
+  #hero, #toolbar { padding-left: 1.25rem; padding-right: 1.25rem; }
+  #layout { padding: 1.25rem; }
+}
+
+/* ─── SIDEBAR ────────────────────────────────────────── */
+#sidebar {
+  position: sticky;
+  top: 62px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+#sidebar::-webkit-scrollbar { display: none; }
+
+.sidebar-head {
+  font-family: var(--f-display);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--mist);
+  padding: .8rem .6rem .3rem;
+  margin-top: .5rem;
+}
+.sidebar-head:first-child { margin-top: 0; padding-top: 0; }
+
+.s-row {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .42rem .6rem;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: background .1s;
+  font-size: .8rem;
+  color: var(--body);
+}
+.s-row:hover { background: var(--smoke); }
+.s-row.active { background: var(--ink); color: #fff; }
+.s-row.complete { color: var(--green); font-weight: 500; }
+.s-row.complete-incoming { color: var(--amber); font-weight: 500; }
+
+.s-dot {
+  width: 7px; height: 7px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.s-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.s-bar {
+  width: 40px; height: 2px;
+  background: var(--smoke);
+  border-radius: 99px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.s-bar > b {
+  display: block; height: 100%;
+  background: var(--blue);
+  border-radius: 99px;
+}
+.s-row.complete .s-bar > b { background: var(--green); }
+.s-row.complete-incoming .s-bar > b { background: var(--amber); }
+.s-row.active .s-bar { background: rgba(255,255,255,.2); }
+.s-row.active .s-bar > b { background: #fff; }
+
+.s-count {
+  font-size: .72rem;
+  color: var(--mist);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.s-row.active .s-count { color: rgba(255,255,255,.5); }
+.s-row.complete .s-count { color: var(--green); opacity: .8; }
+.s-row.complete-incoming .s-count { color: var(--amber); opacity: .8; }
+
+#clearFilter {
+  margin-top: .75rem;
+  width: 100%;
+  height: 34px;
+  border-radius: var(--r-full);
+  border: 1.5px solid var(--smoke);
+  background: transparent;
+  color: var(--soft);
+  font: inherit;
+  font-size: .8rem;
+  cursor: pointer;
+  transition: all .15s;
+}
+#clearFilter:hover { background: var(--smoke); color: var(--title); }
+
+/* ─── CARD GRID ──────────────────────────────────────── */
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: .75rem;
+}
+
+/* ─── THE CARD ───────────────────────────────────────── */
+.card {
+  --c-accent: var(--blue);
+  position: relative;
+  aspect-ratio: 2.5 / 3.5;
+  border-radius: var(--r-lg);
+  cursor: pointer;
+  user-select: none;
+  transition: transform .2s cubic-bezier(.34,1.3,.64,1), box-shadow .2s;
+  overflow: hidden;
+  background: #fff;
+  border: 1.5px solid var(--smoke);
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,.14), 0 4px 12px rgba(0,0,0,.06);
+  z-index: 2;
+}
+.card:active { transform: scale(.97); transition-duration: .1s; }
+
+/* Card face */
+.card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: .6rem .6rem .55rem;
+  gap: .25rem;
+}
+
+/* Gradient top stripe */
+.card-stripe {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 38%;
+  border-radius: var(--r-lg) var(--r-lg) 60% 60% / var(--r-lg) var(--r-lg) 30% 30%;
+  background: linear-gradient(135deg, var(--c-accent), color-mix(in srgb, var(--c-accent) 60%, #fff));
+  opacity: .12;
+  transition: opacity .2s;
+}
+.card.owned .card-stripe { opacity: .22; }
+
+/* Large number */
+.card-num {
+  font-family: var(--f-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--c-accent);
+  letter-spacing: -.04em;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Player silhouette / placeholder art */
+.card-art {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.card-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-accent), color-mix(in srgb, var(--c-accent) 50%, var(--violet)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: rgba(255,255,255,.9);
+  flex-shrink: 0;
+  opacity: .7;
+  transition: opacity .2s;
+}
+.card.owned .card-avatar { opacity: 1; }
+
+/* Card bottom info */
+.card-info {
+  position: relative;
+  z-index: 1;
+}
+
+.card-name {
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--title);
+  line-height: 1.25;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card-team {
+  font-size: .62rem;
+  color: var(--soft);
+  margin-top: .1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Section badge pill */
+.card-badge {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  z-index: 2;
+  box-shadow: 0 0 6px var(--c-accent);
+}
+
+/* Owned state */
+.card.owned {
+  border-color: var(--c-accent);
+  background: color-mix(in srgb, var(--c-accent) 5%, #fff);
+  box-shadow: 0 0 0 1px var(--c-accent), inset 0 0 30px color-mix(in srgb, var(--c-accent) 8%, transparent);
+}
+
+/* Owned checkmark */
+.card-check {
+  position: absolute;
+  bottom: .55rem;
+  right: .55rem;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transform: scale(.5);
+  transition: opacity .2s, transform .2s cubic-bezier(.34,1.56,.64,1);
+  z-index: 3;
+}
+.card-check svg { width: 12px; height: 12px; stroke: #fff; stroke-width: 2.5; }
+.card.owned .card-check { opacity: 1; transform: scale(1); }
+
+/* Copy count badge */
+.card-copies {
+  position: absolute;
+  top: .45rem;
+  left: .45rem;
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--r-full);
+  font-size: .6rem;
+  font-weight: 700;
+  padding: .1rem .35rem;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity .15s;
+}
+.card.owned .card-copies { opacity: 1; }
+.card-copies.single { display: none; }
+
+/* Incoming/reserved */
+.card.reserved {
+  border-color: var(--amber);
+  background: color-mix(in srgb, var(--amber) 5%, #fff);
+}
+.card.reserved .card-num { color: var(--amber); }
+.card.reserved .card-badge { background: var(--amber); box-shadow: 0 0 6px var(--amber); }
+
+/* Holographic shimmer on owned insert cards */
+.card.owned.insert::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 20%, rgba(255,255,255,.4) 35%,
+    transparent 50%, rgba(255,255,255,.2) 65%,
+    transparent 80%
+  );
+  background-size: 200% 100%;
+  animation: holo 3s linear infinite;
+  pointer-events: none;
+  z-index: 4;
+  mix-blend-mode: overlay;
+}
+@keyframes holo {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── EMPTY STATE ────────────────────────────────────── */
+.empty {
+  grid-column: 1/-1;
+  padding: 5rem 2rem;
+  text-align: center;
+  color: var(--mist);
+}
+.empty svg { width: 56px; height: 56px; margin-bottom: 1rem; opacity: .4; }
+.empty p { font-size: .9rem; }
+
+/* ─── TOAST ──────────────────────────────────────────── */
+#toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: var(--ink);
+  color: #fff;
+  padding: .65rem 1.4rem;
+  border-radius: var(--r-full);
+  font-size: .85rem;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity .2s, transform .2s cubic-bezier(.34,1.3,.64,1);
+  pointer-events: none;
+  z-index: 9000;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ─── DIALOG ─────────────────────────────────────────── */
+dialog {
+  background: #fff;
+  border: 1.5px solid var(--smoke);
+  border-radius: var(--r-xl);
+  color: var(--body);
+  padding: 2rem;
+  max-width: 420px;
+  width: 95vw;
+  box-shadow: 0 24px 60px rgba(0,0,0,.2);
+}
+dialog::backdrop { background: rgba(0,0,0,.45); backdrop-filter: blur(6px); }
+dialog h3 {
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--title);
+  margin-bottom: 1.2rem;
+}
+.d-label {
+  display: block;
+  font-size: .75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--soft);
+  margin-bottom: .4rem;
+}
+.d-input {
+  width: 7rem;
+  height: 42px;
+  padding: 0 .75rem;
+  border-radius: var(--r-sm);
+  border: 1.5px solid var(--smoke);
+  background: var(--paper);
+  font: inherit;
+  font-size: 1rem;
+  color: var(--title);
+  outline: none;
+  transition: border-color .15s;
+  margin-bottom: 1rem;
+}
+.d-input:focus { border-color: var(--blue); }
+.d-check-row {
+  display: flex; align-items: center; gap: .6rem;
+  font-size: .85rem;
+  margin-bottom: 1rem;
+}
+.d-check-row input { width: 16px; height: 16px; accent-color: var(--blue); cursor: pointer; }
+dialog menu {
+  display: flex; gap: .5rem; justify-content: flex-end;
+  padding: 0; list-style: none; margin-top: .5rem;
+}
+.d-btn {
+  height: 40px; padding: 0 1.25rem;
+  border-radius: var(--r-full);
+  border: 1.5px solid var(--smoke);
+  background: transparent;
+  font: inherit; font-size: .875rem; font-weight: 600;
+  color: var(--body);
+  cursor: pointer;
+  transition: background .15s;
+}
+.d-btn:hover { background: var(--smoke); }
+.d-btn.primary { background: var(--ink); border-color: var(--ink); color: #fff; }
+.d-btn.primary:hover { background: #1a1814; }
+#textModal { max-width: 560px; }
+#textModal textarea {
+  width: 100%;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: .78rem;
+  background: var(--paper);
+  color: var(--body);
+  border: 1.5px solid var(--smoke);
+  border-radius: var(--r-sm);
+  padding: .7rem;
+  resize: vertical;
+  outline: none;
+}
+
+/* ─── SECTION ACCENT COLOURS ─────────────────────────── */
+.sa-squad-update       { --c-accent: #2563ff; }
+.sa-manager            { --c-accent: #7c3aed; }
+.sa-away-kit           { --c-accent: #06b6d4; }
+.sa-womens             { --c-accent: #ec4899; }
+.sa-wingman            { --c-accent: #059669; }
+.sa-pitch-perfection   { --c-accent: #d97706; }
+.sa-kings-of-europe    { --c-accent: #dc2626; }
+.sa-hat-trick-hero     { --c-accent: #ea580c; }
+.sa-heritage-mom,
+.sa-heritage-wom       { --c-accent: #7c3aed; }
+.sa-100-club,
+.sa-100-club-w,
+.sa-100-club-legend    { --c-accent: #b45309; }
+.sa-clutch-kids        { --c-accent: #0891b2; }
+.sa-special            { --c-accent: #6366f1; }
+.sa-le                 { --c-accent: #9333ea; }
+.sa-infinity           { --c-accent: #0ea5e9; }
+.sa-chrome-x           { --c-accent: #475569; }
+.sa-bab                { --c-accent: #f97316; }
+.sa-black-edge         { --c-accent: #1f2937; }
+.sa-plat-pull          { --c-accent: #64748b; }
+.sa-x-calibre          { --c-accent: #ca8a04; }
+.sa-gold-rush          { --c-accent: #d97706; }
+.sa-black-fire         { --c-accent: #b91c1c; }
+.sa-x-greats           { --c-accent: #65a30d; }
+.sa-proview            { --c-accent: #0891b2; }
+.sa-lens3d             { --c-accent: #db2777; }
+.sa-royal-elite        { --c-accent: #92400e; }
+.sa-ucl-relic          { --c-accent: #374151; }
+.sa-jersey-relic       { --c-accent: #374151; }
+.sa-autograph          { --c-accent: #059669; }
+
+/* sidebar dot colours  */
+[class*="sd-"] { display:inline-block; width:7px; height:7px; border-radius:2px; }
+.sd-squad-update       { background:#2563ff; }
+.sd-manager            { background:#7c3aed; }
+.sd-away-kit           { background:#06b6d4; }
+.sd-womens             { background:#ec4899; }
+.sd-wingman            { background:#059669; }
+.sd-pitch-perfection   { background:#d97706; }
+.sd-kings-of-europe    { background:#dc2626; }
+.sd-hat-trick-hero     { background:#ea580c; }
+.sd-heritage-mom,
+.sd-heritage-wom       { background:#7c3aed; }
+.sd-100-club,
+.sd-100-club-w,
+.sd-100-club-legend    { background:#b45309; }
+.sd-clutch-kids        { background:#0891b2; }
+.sd-special            { background:#6366f1; }
+.sd-le                 { background:#9333ea; }
+.sd-infinity           { background:#0ea5e9; }
+.sd-chrome-x           { background:#475569; }
+.sd-bab                { background:#f97316; }
+.sd-black-edge         { background:#1f2937; }
+.sd-plat-pull          { background:#64748b; }
+.sd-x-calibre          { background:#ca8a04; }
+.sd-gold-rush          { background:#d97706; }
+.sd-black-fire         { background:#b91c1c; }
+.sd-x-greats           { background:#65a30d; }
+.sd-proview            { background:#0891b2; }
+.sd-lens3d             { background:#db2777; }
+.sd-royal-elite        { background:#92400e; }
+.sd-ucl-relic          { background:#374151; }
+.sd-jersey-relic       { background:#374151; }
+.sd-autograph          { background:#059669; }
+
+/* ─── SCROLLBAR ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--mist); border-radius: 99px; }
+
+/* ─── BANNER ─────────────────────────────────────────── */
+#banner {
+  background: #fffbeb;
+  border-bottom: 1px solid #fde68a;
+  color: #92400e;
+  padding: .55rem 2.5rem;
+  font-size: .85rem;
+  display: none;
+}
+#banner:not([hidden]) { display: block; }
+#banner.err { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+#banner button {
+  margin-left: .5rem; padding: .2rem .6rem;
+  background: transparent; color: inherit;
+  border: 1px solid currentColor; border-radius: var(--r-sm);
+  cursor: pointer; font: inherit; font-size: .8rem;
+}
+
+/* ─── POP ANIMATION ──────────────────────────────────── */
+@keyframes card-pop {
+  0%   { transform: translateY(-6px) scale(1.02); }
+  40%  { transform: translateY(-8px) scale(1.06); }
+  100% { transform: translateY(0) scale(1); }
+}
+.card.popping { animation: card-pop .3s cubic-bezier(.34,1.3,.64,1); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero-stats { flex-wrap: wrap; }
+  .hero-stat { min-width: 50%; border-bottom: 1px solid rgba(255,255,255,.08); }
+  #grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: .5rem; }
+  #toolbar { padding: .6rem 1.25rem; }
+  #quickAdd { width: 130px; }
+}
+</style>
 </head>
 <body>
-  <div id="banner" class="banner" role="alert" hidden></div>
-  <header>
-    <h1>Topps Match Attax Extra 2025/26</h1>
-    <div class="subtitle">Card Tracker &nbsp;&middot;&nbsp; 444 cards &nbsp;(319 base &middot; 125 inserts, relics &amp; autos)</div>
-    <div class="overall">
-      <span id="ownedCount">0</span>/<span id="ownedTotal">444</span>
-      <span class="pct" id="ownedPct">0%</span>
-    </div>
-    <div class="bar"><div id="overallBar" style="width:0%"></div></div>
-    <div class="legend">
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-squad)"></span> Squad Update</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-womens)"></span> Women's UCL</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-kings)"></span> Kings of Europe</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-100club)"></span> 100 Club</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-le)"></span> Limited Editions</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-infinity)"></span> Infinity</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-chrome)"></span> Chrome X</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-relic)"></span> Relics</span>
-      <span class="legend-item"><span class="sec-swatch" style="background:var(--sec-auto)"></span> Autographs</span>
-    </div>
-  </header>
 
-  <div id="toolbar">
-    <form id="quickAddForm">
-      <input id="quickAdd" type="text" placeholder="Add cards: 1 5 12-20 …" autocomplete="off">
-      <button type="submit">Add</button>
-      <span class="err" id="quickAddError"></span>
-    </form>
-    <input id="searchInput" type="search" placeholder="Search by number, name or section…">
-    <div id="chips">
-      <button type="button" class="chip active" data-chip="all">All</button>
-      <button type="button" class="chip" data-chip="owned">Owned</button>
-      <button type="button" class="chip" data-chip="missing">Missing</button>
-      <button type="button" class="chip" data-chip="incoming">Incoming</button>
-      <button type="button" class="chip" data-chip="doubles">Doubles</button>
-      <button type="button" class="chip" data-chip="giveaways">×3+</button>
+<div id="banner" hidden></div>
+
+<!-- ═══ HERO ══════════════════════════════════════════ -->
+<div id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div class="hero-brand">
+        <div class="hero-eyebrow">⚽ Card Tracker · Season 2025/26</div>
+        <h1 class="hero-title">Match<br><em>Attax</em></h1>
+        <p class="hero-subtitle">Topps Extra · 444 cards</p>
+      </div>
+      <div class="hero-actions">
+        <button class="icon-btn" id="themeToggle" title="Toggle theme">🌙</button>
+      </div>
     </div>
-    <details id="exportMenu" class="menu">
-      <summary>⬇ Export</summary>
-      <ul>
-        <li><button type="button" data-export="json">JSON backup</button></li>
-        <li><button type="button" data-export="missing">Missing list</button></li>
-        <li><button type="button" data-export="incoming">Incoming list</button></li>
-        <li><button type="button" data-export="doubles">Doubles list</button></li>
-      </ul>
-    </details>
-    <label class="import-lbl">
-      ⬆ Import
-      <input type="file" id="importFile" accept="application/json,.json" hidden>
-    </label>
-    <button type="button" class="theme-toggle" id="themeToggle">🖥 Auto</button>
+
+    <div class="hero-stats">
+      <div class="hero-stat accent">
+        <div class="hero-stat-label">Owned</div>
+        <div class="hero-stat-value" id="ownedCount">0</div>
+        <div class="hero-stat-sub">of <span id="ownedTotal">444</span> cards</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Completion</div>
+        <div class="hero-stat-value" id="ownedPct">0%</div>
+        <div class="hero-stat-sub">overall progress</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Missing</div>
+        <div class="hero-stat-value" id="missingCount">444</div>
+        <div class="hero-stat-sub">still to find</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Doubles</div>
+        <div class="hero-stat-value" id="doublesCount">0</div>
+        <div class="hero-stat-sub">spare copies</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Incoming</div>
+        <div class="hero-stat-value" id="incomingCount">0</div>
+        <div class="hero-stat-sub">trades agreed</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-progress">
+    <div class="hero-progress-fill" id="overallBar" style="width:0%"></div>
+  </div>
+</div>
+
+<!-- ═══ TOOLBAR ════════════════════════════════════════ -->
+<div id="toolbar">
+  <form id="quickAddForm">
+    <input id="quickAdd" type="text" placeholder="Add: 1 5 12-20 …" autocomplete="off">
+    <button type="submit" class="add-btn">+ Add</button>
+    <span id="quickAddError"></span>
+  </form>
+
+  <div class="search-pill">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+    </svg>
+    <input id="searchInput" type="search" placeholder="Search name, team, section…">
   </div>
 
-  <main>
-    <div id="summary"></div>
-    <section id="grid"></section>
-  </main>
+  <div id="chips">
+    <button class="chip active" data-chip="all">All</button>
+    <button class="chip" data-chip="owned">Owned</button>
+    <button class="chip" data-chip="missing">Missing</button>
+    <button class="chip" data-chip="incoming">Incoming</button>
+    <button class="chip" data-chip="doubles">Doubles</button>
+    <button class="chip" data-chip="giveaways">×3+</button>
+  </div>
 
-  <script>
-  // ==== Pure logic (testable) ====
-  window.__toppsApp = {
-    TOTAL_CARDS: 444,
+  <details id="exportMenu" style="position:relative;margin-left:auto">
+    <summary style="list-style:none;cursor:pointer">
+      <span class="tb-btn">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export
+      </span>
+    </summary>
+    <ul>
+      <li><button type="button" data-export="json">💾 JSON backup</button></li>
+      <li><button type="button" data-export="owned">✅ Owned list</button></li>
+      <li><button type="button" data-export="missing">❌ Missing list</button></li>
+      <li><button type="button" data-export="incoming">⇄ Incoming list</button></li>
+      <li><button type="button" data-export="doubles">♻️ Doubles list</button></li>
+    </ul>
+  </details>
 
-    SECTION_LABELS: {
-      // Base
-      'Squad Update':                               'Squad Update',
-      'Manager':                                    'Manager',
-      'Away Kit':                                   'Away Kit',
-      "UEFA Women's Champions League":              "Women's UCL",
-      'Wingman':                                    'Wingman',
-      'Pitch Perfection':                           'Pitch Perfection',
-      'Kings of Europe':                            'Kings of Europe',
-      'Hat-Trick Hero':                             'Hat-Trick Hero',
-      'Topps Heritage - Man of the Match':          'Heritage: MoM',
-      'Topps Heritage - Woman of the Match':        'Heritage: WoM',
-      '100 Club':                                   '100 Club',
-      "100 Club UEFA Women's Champions League":     "100 Club Women's UCL",
-      '100 Club Legend':                            '100 Club Legend',
-      'Clutch Kids':                                'Clutch Kids',
-      'UEFA Official Matchball':                    'Official Matchball',
-      'Match Attax Extra Title Card':               'Title Card',
-      'UEFA 2026 Finals':                           '2026 Finals',
-      // Inserts / LEs
-      'Limited Edition - ElectriX':                'LE – ElectriX',
-      'Limited Edition - Blitz Ballerz':           'LE – Blitz Ballerz',
-      'Limited Edition - Goaliaths':               'LE – Goaliaths',
-      'Limited Edition - Psykicks':                'LE – Psykicks',
-      'Limited Edition - Stadium Lights':          'LE – Stadium Lights',
-      'Infinity':                                  'Infinity',
-      'Chrome X':                                  'Chrome X',
-      'Build-a-Baller Ultimate Baller':            'Build-a-Baller',
-      'Black Edge Edition':                        'Black Edge',
-      'Platinum Pull Limited Edition':             'Platinum Pull',
-      'X-Calibre':                                 'X-Calibre',
-      'Gold Rush Ultra Limited Edition':           'Gold Rush',
-      'Black Fire Limited Edition':                'Black Fire',
-      'X Greats Limited Edition':                  'X Greats',
-      'Facsimile Signature Style Pro View':        'Pro View (Facsimile)',
-      'Pro-View Original':                         'Pro-View Original',
-      '3D X-Lens Phase Shifter':                   '3D X-Lens',
-      'Royal Elite Limited Edition':               'Royal Elite',
-      'Royal Elite Limited Edition – Parallel':    'Royal Elite (Parallel)',
-      // Memorabilia / Autographs
-      'UCL Decades Relic':                         'UCL Decades Relic',
-      'Player-Worn Jersey Relic':                  'Jersey Relic',
-      'Genuine Autograph':                         'Genuine Autograph',
-    },
+  <label class="tb-btn" style="cursor:pointer">
+    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Import
+    <input type="file" id="importFile" accept="application/json,.json" hidden>
+  </label>
+</div>
 
-    SECTION_ORDER: [
-      // Base
-      'Squad Update', 'Manager', 'Away Kit',
-      "UEFA Women's Champions League",
-      'Wingman', 'Pitch Perfection', 'Kings of Europe',
-      'Hat-Trick Hero',
-      'Topps Heritage - Man of the Match', 'Topps Heritage - Woman of the Match',
-      '100 Club', "100 Club UEFA Women's Champions League", '100 Club Legend',
-      'Clutch Kids', 'UEFA Official Matchball', 'Match Attax Extra Title Card', 'UEFA 2026 Finals',
-      // Inserts
-      'Limited Edition - ElectriX',
-      'Limited Edition - Blitz Ballerz', 'Limited Edition - Goaliaths', 'Limited Edition - Psykicks',
-      'Limited Edition - Stadium Lights',
-      'Infinity', 'Chrome X',
-      'Build-a-Baller Ultimate Baller',
-      'Black Edge Edition', 'Platinum Pull Limited Edition',
-      'X-Calibre', 'Gold Rush Ultra Limited Edition', 'Black Fire Limited Edition',
-      'X Greats Limited Edition',
-      'Facsimile Signature Style Pro View', 'Pro-View Original',
-      '3D X-Lens Phase Shifter',
-      'Royal Elite Limited Edition', 'Royal Elite Limited Edition – Parallel',
-      // Mem / Autos
-      'UCL Decades Relic', 'Player-Worn Jersey Relic', 'Genuine Autograph',
-    ],
+<!-- ═══ LAYOUT ══════════════════════════════════════════ -->
+<div id="layout">
+  <aside id="sidebar"><div id="summary"></div></aside>
+  <main><div id="grid"></div></main>
+</div>
 
-    // Section → CSS class for the colour dot
-    SECTION_CSS: {
-      'Squad Update':                               'sec-squad-update',
-      'Manager':                                    'sec-manager',
-      'Away Kit':                                   'sec-away-kit',
-      "UEFA Women's Champions League":              'sec-womens',
-      'Wingman':                                    'sec-wingman',
-      'Pitch Perfection':                           'sec-pitch-perfection',
-      'Kings of Europe':                            'sec-kings-of-europe',
-      'Hat-Trick Hero':                             'sec-hat-trick-hero',
-      'Topps Heritage - Man of the Match':          'sec-heritage-mom',
-      'Topps Heritage - Woman of the Match':        'sec-heritage-wom',
-      '100 Club':                                   'sec-100-club',
-      "100 Club UEFA Women's Champions League":     'sec-100-club-w',
-      '100 Club Legend':                            'sec-100-club-legend',
-      'Clutch Kids':                                'sec-clutch-kids',
-      'UEFA Official Matchball':                    'sec-special',
-      'Match Attax Extra Title Card':               'sec-special',
-      'UEFA 2026 Finals':                           'sec-special',
-      'Limited Edition - ElectriX':                'sec-le',
-      'Limited Edition - Blitz Ballerz':           'sec-le',
-      'Limited Edition - Goaliaths':               'sec-le',
-      'Limited Edition - Psykicks':                'sec-le',
-      'Limited Edition - Stadium Lights':          'sec-le',
-      'Infinity':                                  'sec-infinity',
-      'Chrome X':                                  'sec-chrome-x',
-      'Build-a-Baller Ultimate Baller':            'sec-bab',
-      'Black Edge Edition':                        'sec-black-edge',
-      'Platinum Pull Limited Edition':             'sec-plat-pull',
-      'X-Calibre':                                 'sec-x-calibre',
-      'Gold Rush Ultra Limited Edition':           'sec-gold-rush',
-      'Black Fire Limited Edition':                'sec-black-fire',
-      'X Greats Limited Edition':                  'sec-x-greats',
-      'Facsimile Signature Style Pro View':        'sec-proview',
-      'Pro-View Original':                         'sec-proview',
-      '3D X-Lens Phase Shifter':                   'sec-lens3d',
-      'Royal Elite Limited Edition':               'sec-royal-elite',
-      'Royal Elite Limited Edition – Parallel':    'sec-royal-elite',
-      'UCL Decades Relic':                         'sec-ucl-relic',
-      'Player-Worn Jersey Relic':                  'sec-jersey-relic',
-      'Genuine Autograph':                         'sec-autograph',
-    },
+<div id="toast" hidden></div>
 
-    parseQuickAdd(input) {
-      const valid = [];
-      const errors = [];
-      if (!input || !input.trim()) return { valid, errors };
-      const tokens = input.split(/[\s,]+/).filter(Boolean);
-      for (const tok of tokens) {
-        const m = tok.match(/^(\d+)-(\d+)$/);
-        if (m) {
-          const a = parseInt(m[1], 10), b = parseInt(m[2], 10);
-          if (a > b || a < 1 || b > 9999) { errors.push(tok); continue; }
-          for (let n = a; n <= b; n++) valid.push(n);
-          continue;
-        }
-        if (/^\d+$/.test(tok)) {
-          const n = parseInt(tok, 10);
-          if (n < 1 || n > 9999) { errors.push(tok); continue; }
-          valid.push(n);
-          continue;
-        }
-        errors.push(tok);
-      }
-      return { valid, errors };
-    },
+<!-- ═══ DIALOGS ═════════════════════════════════════════ -->
+<dialog id="cardEditModal">
+  <h3 id="cardEditTitle">Edit card</h3>
+  <label class="d-label" for="cardEditCount">Copies owned</label>
+  <input class="d-input" id="cardEditCount" type="number" min="0" step="1">
+  <div class="d-check-row" id="cardEditReservedRow">
+    <input id="cardEditReserved" type="checkbox">
+    <label for="cardEditReserved">Incoming — trade agreed, card on the way</label>
+  </div>
+  <menu>
+    <button id="cardEditSave"   class="d-btn primary" type="button">Save</button>
+    <button id="cardEditCancel" class="d-btn"         type="button">Cancel</button>
+  </menu>
+</dialog>
 
-    computeStats(checklist, collection, reserved) {
-      reserved = reserved || {};
-      let owned = 0;
-      const perSection = {};
+<dialog id="textModal">
+  <h3 id="textModalTitle"></h3>
+  <textarea id="textModalBody" rows="16" readonly></textarea>
+  <menu>
+    <button id="textModalCopy"  class="d-btn primary" type="button">Copy</button>
+    <button id="textModalClose" class="d-btn"         type="button">Close</button>
+  </menu>
+</dialog>
 
+<!-- ═══ LOGIC ═══════════════════════════════════════════ -->
+<script>
+/* ── Pure app object ───────────────────────────────── */
+window.__app = {
+  SECTION_LABELS: {
+    'Squad Update':'Squad Update','Manager':'Manager','Away Kit':'Away Kit',
+    "UEFA Women's Champions League":"Women's UCL",'Wingman':'Wingman',
+    'Pitch Perfection':'Pitch Perfection','Kings of Europe':'Kings of Europe',
+    'Hat-Trick Hero':'Hat-Trick Hero',
+    'Topps Heritage - Man of the Match':'Heritage: MoM',
+    'Topps Heritage - Woman of the Match':'Heritage: WoM',
+    '100 Club':'100 Club',"100 Club UEFA Women's Champions League":"100 Club W.",
+    '100 Club Legend':'100 Club Legend','Clutch Kids':'Clutch Kids',
+    'UEFA Official Matchball':'Matchball','Match Attax Extra Title Card':'Title Card',
+    'UEFA 2026 Finals':'2026 Finals',
+    'Limited Edition - ElectriX':'LE ElectriX','Limited Edition - Blitz Ballerz':'LE Blitz Ballerz',
+    'Limited Edition - Goaliaths':'LE Goaliaths','Limited Edition - Psykicks':'LE Psykicks',
+    'Limited Edition - Stadium Lights':'LE Stadium Lights',
+    'Infinity':'Infinity','Chrome X':'Chrome X','Build-a-Baller Ultimate Baller':'Build-a-Baller',
+    'Black Edge Edition':'Black Edge','Platinum Pull Limited Edition':'Platinum Pull',
+    'X-Calibre':'X-Calibre','Gold Rush Ultra Limited Edition':'Gold Rush',
+    'Black Fire Limited Edition':'Black Fire','X Greats Limited Edition':'X Greats',
+    'Facsimile Signature Style Pro View':'Pro View (Facs.)','Pro-View Original':'Pro-View Original',
+    '3D X-Lens Phase Shifter':'3D X-Lens','Royal Elite Limited Edition':'Royal Elite',
+    'Royal Elite Limited Edition – Parallel':'Royal Elite (Par.)',
+    'UCL Decades Relic':'UCL Relic','Player-Worn Jersey Relic':'Jersey Relic',
+    'Genuine Autograph':'Autograph',
+  },
+  SECTION_ORDER: [
+    'Squad Update','Manager','Away Kit',"UEFA Women's Champions League",
+    'Wingman','Pitch Perfection','Kings of Europe','Hat-Trick Hero',
+    'Topps Heritage - Man of the Match','Topps Heritage - Woman of the Match',
+    '100 Club',"100 Club UEFA Women's Champions League",'100 Club Legend',
+    'Clutch Kids','UEFA Official Matchball','Match Attax Extra Title Card','UEFA 2026 Finals',
+    'Limited Edition - ElectriX','Limited Edition - Blitz Ballerz','Limited Edition - Goaliaths',
+    'Limited Edition - Psykicks','Limited Edition - Stadium Lights',
+    'Infinity','Chrome X','Build-a-Baller Ultimate Baller',
+    'Black Edge Edition','Platinum Pull Limited Edition','X-Calibre',
+    'Gold Rush Ultra Limited Edition','Black Fire Limited Edition','X Greats Limited Edition',
+    'Facsimile Signature Style Pro View','Pro-View Original','3D X-Lens Phase Shifter',
+    'Royal Elite Limited Edition','Royal Elite Limited Edition – Parallel',
+    'UCL Decades Relic','Player-Worn Jersey Relic','Genuine Autograph',
+  ],
+  SECTION_CSS: {
+    'Squad Update':'squad-update','Manager':'manager','Away Kit':'away-kit',
+    "UEFA Women's Champions League":'womens','Wingman':'wingman',
+    'Pitch Perfection':'pitch-perfection','Kings of Europe':'kings-of-europe',
+    'Hat-Trick Hero':'hat-trick-hero',
+    'Topps Heritage - Man of the Match':'heritage-mom',
+    'Topps Heritage - Woman of the Match':'heritage-wom',
+    '100 Club':'100-club',"100 Club UEFA Women's Champions League":'100-club-w',
+    '100 Club Legend':'100-club-legend','Clutch Kids':'clutch-kids',
+    'UEFA Official Matchball':'special','Match Attax Extra Title Card':'special',
+    'UEFA 2026 Finals':'special',
+    'Limited Edition - ElectriX':'le','Limited Edition - Blitz Ballerz':'le',
+    'Limited Edition - Goaliaths':'le','Limited Edition - Psykicks':'le',
+    'Limited Edition - Stadium Lights':'le',
+    'Infinity':'infinity','Chrome X':'chrome-x','Build-a-Baller Ultimate Baller':'bab',
+    'Black Edge Edition':'black-edge','Platinum Pull Limited Edition':'plat-pull',
+    'X-Calibre':'x-calibre','Gold Rush Ultra Limited Edition':'gold-rush',
+    'Black Fire Limited Edition':'black-fire','X Greats Limited Edition':'x-greats',
+    'Facsimile Signature Style Pro View':'proview','Pro-View Original':'proview',
+    '3D X-Lens Phase Shifter':'lens3d','Royal Elite Limited Edition':'royal-elite',
+    'Royal Elite Limited Edition – Parallel':'royal-elite',
+    'UCL Decades Relic':'ucl-relic','Player-Worn Jersey Relic':'jersey-relic',
+    'Genuine Autograph':'autograph',
+  },
+  BASE_SECS: new Set([
+    'Squad Update','Manager','Away Kit',"UEFA Women's Champions League",
+    'Wingman','Pitch Perfection','Kings of Europe','Hat-Trick Hero',
+    'Topps Heritage - Man of the Match','Topps Heritage - Woman of the Match',
+    '100 Club',"100 Club UEFA Women's Champions League",'100 Club Legend',
+    'Clutch Kids','UEFA Official Matchball','Match Attax Extra Title Card','UEFA 2026 Finals',
+  ]),
+  MEM_SECS: new Set(['UCL Decades Relic','Player-Worn Jersey Relic','Genuine Autograph']),
+
+  parseQuickAdd(input) {
+    const valid=[], errors=[];
+    if (!input?.trim()) return {valid,errors};
+    for (const tok of input.split(/[\s,]+/).filter(Boolean)) {
+      const m = tok.match(/^(\d+)-(\d+)$/);
+      if (m) {
+        const [a,b]=[parseInt(m[1]),parseInt(m[2])];
+        if (a>b||a<1||b>9999){errors.push(tok);continue;}
+        for(let n=a;n<=b;n++) valid.push(n);
+      } else if (/^\d+$/.test(tok)) {
+        const n=parseInt(tok);
+        if(n<1||n>9999){errors.push(tok);continue;}
+        valid.push(n);
+      } else errors.push(tok);
+    }
+    return {valid,errors};
+  },
+
+  computeStats(checklist, col, rsv={}) {
+    let owned=0, doubles=0, incoming=0;
+    const perSec={};
+    for (const c of checklist) {
+      perSec[c.section] = perSec[c.section]||{owned:0,incoming:0,total:0};
+      perSec[c.section].total++;
+    }
+    for (const c of checklist) {
+      const cnt = col[c.number]||0;
+      if (cnt>=1){ owned++; if(cnt>=2) doubles+=(cnt-1); perSec[c.section].owned++; }
+      else if (rsv[c.number]) { incoming++; perSec[c.section].incoming++; }
+    }
+    return { owned, total:checklist.length, pct:Math.round(100*owned/checklist.length), doubles, incoming, perSec };
+  },
+
+  matchesSearch(card, q) {
+    if (!q?.trim()) return true;
+    const s = q.trim().toLowerCase();
+    const m = s.match(/^(\d+)\s*-\s*(\d+)$/);
+    if (m) { const lo=+m[1],hi=+m[2]; return lo<=hi && card.number>=lo && card.number<=hi; }
+    return String(card.number)===s
+      || card.section?.toLowerCase().includes(s)
+      || card.player?.toLowerCase().includes(s)
+      || card.team?.toLowerCase().includes(s)
+      || card.type?.toLowerCase().includes(s);
+  },
+
+  _groupByLabel(checklist, fn) {
+    const groups=new Map(), order=[];
+    for (const sec of this.SECTION_ORDER)
       for (const c of checklist) {
-        perSection[c.section] = perSection[c.section] || { owned: 0, incoming: 0, total: 0 };
-        perSection[c.section].total++;
+        if (c.section!==sec||!fn(c)) continue;
+        const lbl = this.SECTION_LABELS[sec]||sec;
+        if (!groups.has(lbl)){groups.set(lbl,[]);order.push(lbl);}
+        groups.get(lbl).push(c.number);
       }
-      for (const c of checklist) {
-        const count = collection[c.number] || 0;
-        if (count >= 1) {
-          owned++;
-          perSection[c.section].owned++;
-        } else if (reserved[c.number]) {
-          perSection[c.section].incoming++;
-        }
+    return {groups,order};
+  },
+  formatMissing(cl,col,rsv={}) {
+    const fn=c=>!(col[c.number]>=1)&&!rsv[c.number];
+    const {groups,order}=this._groupByLabel(cl,fn);
+    const tot=cl.filter(fn).length;
+    return [`Missing (${tot}):`,...order.map(l=>`${l}: ${groups.get(l).join(', ')}`)].join('\n');
+  },
+  formatIncoming(cl,col,rsv={}) {
+    const fn=c=>!(col[c.number]>=1)&&!!rsv[c.number];
+    const {groups,order}=this._groupByLabel(cl,fn);
+    const tot=cl.filter(fn).length;
+    return [`Incoming (${tot}):`,...order.map(l=>`${l}: ${groups.get(l).join(', ')}`)].join('\n');
+  },
+  formatOwned(cl,col) {
+    const fn=c=>(col[c.number]||0)>=1;
+    const {groups,order}=this._groupByLabel(cl,fn);
+    const tot=cl.filter(fn).length;
+    return [`Owned (${tot}):`,...order.map(l=>`${l}: ${groups.get(l).join(', ')}`)].join('\n');
+  },
+  formatDoubles(cl,col) {
+    const fn=c=>(col[c.number]||0)>=2;
+    const {groups,order}=this._groupByLabel(cl,fn);
+    const tot=cl.reduce((s,c)=>s+Math.max(0,(col[c.number]||0)-1),0);
+    return [`Doubles — spare copies (${tot}):`,...order.map(l=>{
+      const parts=groups.get(l).map(n=>{const sp=col[n]-1;return sp>1?`${n}(×${sp})`:String(n);});
+      return `${l}: ${parts.join(', ')}`;
+    })].join('\n');
+  },
+  applyImport(existing, imp, mode) {
+    let impCol=imp, impRsv=null;
+    if(imp&&typeof imp==='object'&&!Array.isArray(imp)&&(imp.collection!==undefined||imp.reserved!==undefined)){
+      impCol=imp.collection||{};impRsv=imp.reserved||{};
+    }
+    const norm={};
+    if(Array.isArray(impCol)){for(const n of impCol){if(typeof n!=='number'||n<1||n>9999)continue;norm[n]=(norm[n]||0)+1;}}
+    else if(impCol&&typeof impCol==='object'){
+      for(const[k,v]of Object.entries(impCol)){
+        const num=parseInt(k),key=String(num)===k?num:k;
+        const c=typeof v==='number'?v:parseInt(v);
+        if(!isFinite(c)||c<1)continue;norm[key]=c;
       }
-      return {
-        owned,
-        total: checklist.length,
-        pct: Math.round(100 * owned / checklist.length),
-        perSection,
-      };
-    },
-
-    _groupByLabel(checklist, filter) {
-      const groups = new Map();
-      const groupOrder = [];
-      for (const sec of this.SECTION_ORDER) {
-        for (const c of checklist) {
-          if (c.section !== sec) continue;
-          if (!filter(c)) continue;
-          const label = this.SECTION_LABELS[sec] || sec;
-          if (!groups.has(label)) { groups.set(label, []); groupOrder.push(label); }
-          groups.get(label).push(c.number);
-        }
+    }
+    let out;
+    if(mode==='replace') out={collection:norm};
+    else{const merged={...existing};for(const[k,v]of Object.entries(norm))merged[k]=(merged[k]||0)+v;out={collection:merged};}
+    if(impRsv!==null){
+      const cr={};
+      for(const[k,v]of Object.entries(impRsv)){
+        const num=parseInt(k),key=String(num)===k?num:k;
+        const c=typeof v==='number'?v:parseInt(v);
+        if(!isFinite(c)||c<1)continue;cr[key]=c;
       }
-      return { groups, groupOrder };
-    },
-
-    formatMissingList(checklist, collection, reserved) {
-      reserved = reserved || {};
-      const missing = c => (!collection[c.number] || collection[c.number] < 1) && !reserved[c.number];
-      const { groups, groupOrder } = this._groupByLabel(checklist, missing);
-      const totalMissing = checklist.filter(missing).length;
-      const lines = [`Missing (${totalMissing}):`];
-      for (const label of groupOrder) {
-        lines.push(`${label}: ${groups.get(label).join(', ')}`);
-      }
-      return lines.join('\n');
-    },
-
-    formatIncomingList(checklist, collection, reserved) {
-      reserved = reserved || {};
-      const incoming = c => (!collection[c.number] || collection[c.number] < 1) && !!reserved[c.number];
-      const { groups, groupOrder } = this._groupByLabel(checklist, incoming);
-      const totalIncoming = checklist.filter(incoming).length;
-      const lines = [`Incoming (${totalIncoming}):`];
-      for (const label of groupOrder) {
-        lines.push(`${label}: ${groups.get(label).join(', ')}`);
-      }
-      return lines.join('\n');
-    },
-
-    formatDoublesList(checklist, collection) {
-      const dbl = c => (collection[c.number] || 0) >= 2;
-      const { groups, groupOrder } = this._groupByLabel(checklist, dbl);
-      const totalSpares = checklist.reduce((sum, c) => sum + Math.max(0, (collection[c.number] || 0) - 1), 0);
-      const lines = [`Doubles — spare copies to trade (${totalSpares}):`];
-      for (const label of groupOrder) {
-        const parts = groups.get(label).map(n => {
-          const spare = collection[n] - 1;
-          return spare > 1 ? `${n} (×${spare})` : `${n}`;
-        });
-        lines.push(`${label}: ${parts.join(', ')}`);
-      }
-      return lines.join('\n');
-    },
-
-    applyImport(existing, imported, mode) {
-      let importedCollection = imported;
-      let importedReserved = null;
-      if (imported && typeof imported === 'object' && !Array.isArray(imported) &&
-          (imported.collection !== undefined || imported.reserved !== undefined)) {
-        importedCollection = imported.collection || {};
-        importedReserved = imported.reserved || {};
-      }
-      const normalized = {};
-      if (Array.isArray(importedCollection)) {
-        for (const n of importedCollection) {
-          if (typeof n !== 'number' || n < 1 || n > 9999) continue;
-          normalized[n] = (normalized[n] || 0) + 1;
-        }
-      } else if (importedCollection && typeof importedCollection === 'object') {
-        for (const [k, v] of Object.entries(importedCollection)) {
-          const asNum = parseInt(k, 10);
-          const key = String(asNum) === k ? asNum : k;
-          const c = typeof v === 'number' ? v : parseInt(v, 10);
-          if (!Number.isFinite(c) || c < 1) continue;
-          normalized[key] = c;
-        }
-      }
-      let out;
-      if (mode === 'replace') {
-        out = { collection: normalized };
-      } else {
-        const merged = { ...existing };
-        for (const [k, v] of Object.entries(normalized)) {
-          merged[k] = (merged[k] || 0) + v;
-        }
-        out = { collection: merged };
-      }
-      if (importedReserved !== null) {
-        const cleanReserved = {};
-        for (const [k, v] of Object.entries(importedReserved)) {
-          const asNum = parseInt(k, 10);
-          const key = String(asNum) === k ? asNum : k;
-          const c = typeof v === 'number' ? v : parseInt(v, 10);
-          if (!Number.isFinite(c) || c < 1) continue;
-          cleanReserved[key] = c;
-        }
-        out.reserved = cleanReserved;
-      }
+      out.reserved=cr;
+    }
+    return out;
+  },
+  SK:'topps_ma2526_collection', RK:'topps_ma2526_reserved',
+  storageOk(){try{localStorage.setItem('__t__','1');localStorage.removeItem('__t__');return true;}catch{return false;}},
+  load(key){
+    try{
+      const raw=localStorage.getItem(key); if(!raw) return {};
+      const p=JSON.parse(raw); if(!p||typeof p!=='object') return {};
+      const out={};
+      for(const[k,v]of Object.entries(p)){const c=typeof v==='number'?v:parseInt(v);if(!isFinite(c)||c<1)continue;const n=parseInt(k);out[String(n)===k?n:k]=c;}
       return out;
-    },
+    }catch{return {};}
+  },
+  save(key,val){try{localStorage.setItem(key,JSON.stringify(val));}catch{}},
+};
 
-    matchesSearch(card, query) {
-      if (!query || !query.trim()) return true;
-      const q = query.trim().toLowerCase();
-      const rangeMatch = q.match(/^(\d+)\s*-\s*(\d+)$/);
-      if (rangeMatch) {
-        const lo = parseInt(rangeMatch[1], 10);
-        const hi = parseInt(rangeMatch[2], 10);
-        if (lo <= hi) return card.number >= lo && card.number <= hi;
-        return false;
+/* ── Boot ──────────────────────────────────────────── */
+(async ()=>{
+  const A=window.__app;
+  const $=id=>document.getElementById(id);
+
+  const banner=$('banner');
+  if(!A.storageOk()){
+    banner.hidden=false;
+    banner.textContent='⚠ Storage disabled — use Export to save manually.';
+  }
+
+  let checklist;
+  try {
+    const r=await fetch('checklist.json');
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    checklist=await r.json();
+    if(!Array.isArray(checklist)||!checklist.length) throw new Error('Empty');
+  } catch(e) {
+    banner.hidden=false; banner.classList.add('err');
+    const msg=document.createElement('span'); msg.textContent='❌ Could not load checklist — '+e.message+'. ';
+    const btn=document.createElement('button'); btn.textContent='Reload'; btn.onclick=()=>location.reload();
+    banner.append(msg,btn); return;
+  }
+
+  // Sort checklist by SECTION_ORDER index, then numerically within each section
+  const secIdx = Object.fromEntries(A.SECTION_ORDER.map((s,i)=>[s,i]));
+  function cardSortNum(n){
+    // extract trailing digits for within-section ordering: 'BAB3' → 3, '42' → 42
+    const m = String(n).match(/(\d+)$/);
+    return m ? parseInt(m[1], 10) : 0;
+  }
+  checklist.sort((a,b)=>{
+    const si = (secIdx[a.section]??999) - (secIdx[b.section]??999);
+    if (si !== 0) return si;
+    return cardSortNum(a.number) - cardSortNum(b.number);
+  });
+
+  let col=A.load(A.SK), rsv=A.load(A.RK);
+  let filterSec=null, chip='all', search='';
+
+  const INSERT_TYPES = new Set(['Insert','Limited Edition','Autograph','Relic']);
+  function isInsert(c){ return !A.BASE_SECS.has(c.section)&&!A.MEM_SECS.has(c.section); }
+
+  function visible(c){
+    if(filterSec&&c.section!==filterSec) return false;
+    const cnt=col[c.number]||0, inc=!cnt&&(rsv[c.number]||0)>0;
+    if(chip==='owned'&&!cnt) return false;
+    if(chip==='missing'&&(cnt||inc)) return false;
+    if(chip==='incoming'&&!inc) return false;
+    if(chip==='doubles'&&cnt<2) return false;
+    if(chip==='giveaways'&&cnt<3) return false;
+    return A.matchesSearch(c,search);
+  }
+
+  function initials(name){
+    if(!name) return '?';
+    return name.split(' ').filter(Boolean).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+  }
+
+  function makeCard(c){
+    const cnt=col[c.number]||0, owned=cnt>=1, isRsv=!owned&&(rsv[c.number]||0)>0;
+    const css=A.SECTION_CSS[c.section]||'';
+    const ins=isInsert(c);
+
+    const el=document.createElement('div');
+    el.className='card'+(owned?' owned':'')+(isRsv?' reserved':'')+(ins&&owned?' insert':'')+(css?' sa-'+css:'');
+    el.dataset.n=c.number;
+
+    el.innerHTML=`
+      <div class="card-stripe"></div>
+      <div class="card-badge" title="${c.section}"></div>
+      <div class="card-face">
+        <div class="card-num">#${c.number}</div>
+        <div class="card-art">
+          <div class="card-avatar">${initials(c.player)}</div>
+        </div>
+        <div class="card-info">
+          <div class="card-name">${c.player||c.type||''}</div>
+          <div class="card-team">${c.team&&c.team!=='-'?c.team:(A.SECTION_LABELS[c.section]||c.section)}</div>
+        </div>
+      </div>
+      <div class="card-copies${cnt<=1?' single':''}">×${cnt}</div>
+      <div class="card-check">
+        <svg fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>`;
+    return el;
+  }
+
+  function renderGrid(){
+    const grid=$('grid');
+    grid.textContent='';
+    let n=0;
+    for(const c of checklist){
+      if(!visible(c)) continue;
+      grid.appendChild(makeCard(c));
+      n++;
+    }
+    if(!n){
+      const e=document.createElement('div');
+      e.className='empty';
+      e.innerHTML=`<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><p>No cards match your filter.</p>`;
+      grid.appendChild(e);
+    }
+  }
+
+  function renderStats(){
+    const s=A.computeStats(checklist,col,rsv);
+    $('ownedCount').textContent=s.owned;
+    $('ownedTotal').textContent=s.total;
+    $('ownedPct').textContent=s.pct+'%';
+    $('missingCount').textContent=s.total-s.owned-s.incoming;
+    $('doublesCount').textContent=s.doubles;
+    $('incomingCount').textContent=s.incoming;
+    $('overallBar').style.width=s.pct+'%';
+    renderSidebar(s);
+  }
+
+  function renderSidebar(stats){
+    const el=$('summary'); el.textContent='';
+    let didIns=false, didMem=false, didBase=false;
+
+    for(const sec of A.SECTION_ORDER){
+      const info=stats.perSec[sec]; if(!info) continue;
+      const lbl=A.SECTION_LABELS[sec]||sec, css=A.SECTION_CSS[sec]||'';
+      const isBase=A.BASE_SECS.has(sec), isMem=A.MEM_SECS.has(sec);
+
+      if(isBase&&!didBase){
+        const h=document.createElement('div'); h.className='sidebar-head'; h.textContent='Base Cards';
+        el.appendChild(h); didBase=true;
       }
-      if (String(card.number) === q) return true;
-      if (card.section && card.section.toLowerCase().includes(q)) return true;
-      if (card.player && card.player.toLowerCase().includes(q)) return true;
-      if (card.team  && card.team.toLowerCase().includes(q)) return true;
-      if (card.type  && card.type.toLowerCase().includes(q)) return true;
-      return false;
-    },
-
-    STORAGE_KEY: 'topps_ma2526_collection',
-    RESERVED_KEY: 'topps_ma2526_reserved',
-
-    storageAvailable() {
-      try {
-        const t = '__t__';
-        localStorage.setItem(t, t);
-        localStorage.removeItem(t);
-        return true;
-      } catch (_) { return false; }
-    },
-
-    loadCollection() {
-      try {
-        const raw = localStorage.getItem(this.STORAGE_KEY);
-        if (!raw) return {};
-        const parsed = JSON.parse(raw);
-        if (!parsed || typeof parsed !== 'object') return {};
-        // Keys may be numeric (base) or string codes (e.g. "CX1") for inserts
-        const clean = {};
-        for (const [k, v] of Object.entries(parsed)) {
-          const c = typeof v === 'number' ? v : parseInt(v, 10);
-          if (!Number.isFinite(c) || c < 1) continue;
-          const asNum = parseInt(k, 10);
-          clean[String(asNum) === k ? asNum : k] = c;
-        }
-        return clean;
-      } catch (_) { return {}; }
-    },
-
-    saveCollection(collection) {
-      try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(collection)); }
-      catch (_) { /* storage disabled */ }
-    },
-
-    loadReserved() {
-      try {
-        const raw = localStorage.getItem(this.RESERVED_KEY);
-        if (!raw) return {};
-        const parsed = JSON.parse(raw);
-        if (!parsed || typeof parsed !== 'object') return {};
-        const clean = {};
-        for (const [k, v] of Object.entries(parsed)) {
-          const c = typeof v === 'number' ? v : parseInt(v, 10);
-          if (!Number.isFinite(c) || c < 1) continue;
-          const asNum = parseInt(k, 10);
-          clean[String(asNum) === k ? asNum : k] = c;
-        }
-        return clean;
-      } catch (_) { return {}; }
-    },
-
-    saveReserved(reserved) {
-      try { localStorage.setItem(this.RESERVED_KEY, JSON.stringify(reserved)); }
-      catch (_) { /* storage disabled */ }
-    },
-  };
-  </script>
-
-  <script>
-  // ==== Boot ====
-  (async () => {
-    const app = window.__toppsApp;
-    const grid = document.getElementById('grid');
-    const ownedCountEl = document.getElementById('ownedCount');
-    const ownedTotalEl = document.getElementById('ownedTotal');
-    const ownedPctEl   = document.getElementById('ownedPct');
-    const overallBarEl = document.getElementById('overallBar');
-    const banner = document.getElementById('banner');
-
-    if (!app.storageAvailable()) {
-      banner.hidden = false;
-      banner.textContent = '⚠ Storage disabled — your collection will not persist. Use Export to save manually.';
-    }
-
-    let checklist;
-    try {
-      const res = await fetch('checklist.json');
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      checklist = await res.json();
-      if (!Array.isArray(checklist) || checklist.length === 0) {
-        throw new Error('checklist.json is empty or not an array');
+      if(!isBase&&!isMem&&!didIns){
+        const h=document.createElement('div'); h.className='sidebar-head'; h.textContent='Inserts & Specials';
+        el.appendChild(h); didIns=true;
       }
-    } catch (err) {
-      console.error('Failed to load checklist.json:', err);
-      banner.hidden = false;
-      banner.classList.add('error');
-      banner.textContent = '';
-      const msg = document.createElement('span');
-      msg.textContent = 'Failed to load checklist.json — ' + err.message + '. ';
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.textContent = 'Reload';
-      btn.addEventListener('click', () => location.reload());
-      banner.append(msg, btn);
-      return;
-    }
-
-    let collection = app.loadCollection();
-    let reserved   = app.loadReserved();
-
-    let filter = { kind: 'all', value: null };
-    let chip = 'all';
-    let searchQuery = '';
-
-    function cardVisible(c) {
-      if (filter.kind === 'section' && c.section !== filter.value) return false;
-      const count = collection[c.number] || 0;
-      const isIncoming = count < 1 && (reserved[c.number] || 0) > 0;
-      if (chip === 'owned'    && count < 1) return false;
-      if (chip === 'missing'  && (count >= 1 || isIncoming)) return false;
-      if (chip === 'incoming' && !isIncoming) return false;
-      if (chip === 'doubles'  && count < 2) return false;
-      if (chip === 'giveaways' && count < 3) return false;
-      if (!app.matchesSearch(c, searchQuery)) return false;
-      return true;
-    }
-
-    function renderTile(c) {
-      const key   = c.number;
-      const count = collection[key] || 0;
-      const owned = count >= 1;
-      const isRsv = !owned && (reserved[key] || 0) > 0;
-
-      const tile = document.createElement('div');
-      tile.className = 'tile' + (owned ? ' owned' : '') + (isRsv ? ' reserved' : '');
-      tile.dataset.number = c.number;
-
-      // Section colour dot
-      const cssClass = app.SECTION_CSS[c.section];
-      if (cssClass) {
-        const dot = document.createElement('span');
-        dot.className = 'sec-badge ' + cssClass;
-        dot.title = c.section;
-        tile.appendChild(dot);
+      if(isMem&&!didMem){
+        const h=document.createElement('div'); h.className='sidebar-head'; h.textContent='Memorabilia & Autos';
+        el.appendChild(h); didMem=true;
       }
 
-      const num = document.createElement('span');
-      num.className = 'num';
-      num.textContent = '#' + c.number;
-      if (count > 1) {
-        const dup = document.createElement('span');
-        dup.className = 'dup';
-        dup.textContent = '×' + count;
-        num.append(' ', dup);
-      }
-      if (isRsv) {
-        const rsv = document.createElement('span');
-        rsv.className = 'rsv';
-        rsv.title = 'Reserved for trade';
-        rsv.textContent = '⇄';
-        num.append(' ', rsv);
-      }
+      const pct=info.total>0?Math.round(100*info.owned/info.total):0;
+      const complete=info.total>0&&info.owned===info.total;
+      const completeInc=!complete&&info.owned+info.incoming===info.total;
 
-      const name = document.createElement('span');
-      name.className = 'name';
-      name.textContent = c.player;
-
-      const meta = document.createElement('span');
-      meta.className = 'meta';
-      // show team if meaningful, else fall back to section label
-      meta.textContent = (c.team && c.team !== '-') ? c.team : (app.SECTION_LABELS[c.section] || c.section);
-
-      tile.append(num, name, meta);
-      return tile;
+      const row=document.createElement('div');
+      row.className='s-row'+(complete?' complete':completeInc?' complete-incoming':'')+(filterSec===sec?' active':'');
+      row.dataset.sec=sec;
+      row.innerHTML=`
+        <span class="s-dot sd-${css||'squad-update'}"></span>
+        <span class="s-name">${lbl}</span>
+        <div class="s-bar"><b style="width:${pct}%"></b></div>
+        <span class="s-count">${info.owned}/${info.total}</span>`;
+      el.appendChild(row);
     }
 
-    function renderAll() {
-      grid.textContent = '';
-      for (const c of checklist) {
-        if (!cardVisible(c)) continue;
-        grid.appendChild(renderTile(c));
-      }
-      const stats = app.computeStats(checklist, collection, reserved);
-      ownedCountEl.textContent = stats.owned;
-      ownedTotalEl.textContent = stats.total;
-      ownedPctEl.textContent   = stats.pct + '%';
-      overallBarEl.style.width = stats.pct + '%';
-      renderSummary(stats);
+    if(filterSec){
+      const btn=document.createElement('button');
+      btn.id='clearFilter'; btn.className=''; btn.type='button';
+      btn.style='margin-top:.75rem;width:100%;height:34px;border-radius:999px;border:1.5px solid #e8e6df;background:transparent;font:inherit;font-size:.8rem;cursor:pointer;color:#706d65;transition:background .15s';
+      btn.textContent='✕ Show all sections';
+      el.appendChild(btn);
     }
+  }
 
-    function renderSummary(stats) {
-      const summary = document.getElementById('summary');
-      summary.textContent = '';
+  function render(){renderGrid();renderStats();}
 
-      function row(kind, value, label, dotClass, owned, incoming, total) {
-        const pct = total > 0 ? Math.round(100 * owned / total) : 0;
-        const el = document.createElement('div');
-        el.className = 'summary-row';
-        if (filter.kind === kind && filter.value === value) el.classList.add('active');
-        const trulyComplete    = total > 0 && owned === total;
-        const completeViaInc   = !trulyComplete && total > 0 && owned + incoming === total;
-        if (trulyComplete)  el.classList.add('complete');
-        else if (completeViaInc) el.classList.add('complete-incoming');
-        el.dataset.kind  = kind;
-        el.dataset.value = value;
+  function cardKey(raw){const n=parseInt(raw);return String(n)===String(raw)?n:raw;}
 
-        const lbl = document.createElement('span');
-        lbl.className = 'lbl';
-        if (dotClass) {
-          const dot = document.createElement('span');
-          dot.className = 'lbl-dot ' + dotClass;
-          lbl.appendChild(dot);
-        }
-        const txt = document.createTextNode(label);
-        lbl.appendChild(txt);
-        lbl.title = label;
+  /* ── Interactions ───────────────────────── */
+  const grid=$('grid');
 
-        const bar = document.createElement('div');
-        bar.className = 'bar';
-        const fill = document.createElement('div');
-        fill.style.width = pct + '%';
-        bar.appendChild(fill);
+  grid.addEventListener('click', e=>{
+    const c=e.target.closest('.card'); if(!c) return;
+    if(_lp){_lp=false;return;}
+    const n=cardKey(c.dataset.n), cnt=col[n]||0;
+    if(!cnt){col[n]=1;delete rsv[n];}else delete col[n];
+    A.save(A.SK,col); A.save(A.RK,rsv);
+    c.classList.add('popping');
+    c.addEventListener('animationend',()=>c.classList.remove('popping'),{once:true});
+    render();
+  });
 
-        const num = document.createElement('span');
-        num.className = 'num';
-        num.textContent = (completeViaInc ? total : owned) + '/' + total;
+  grid.addEventListener('contextmenu',e=>{
+    const c=e.target.closest('.card');if(!c)return;
+    e.preventDefault();openEdit(cardKey(c.dataset.n));
+  });
 
-        el.append(lbl, bar, num);
-        return el;
-      }
+  let _lp=false,_pt=null;
+  grid.addEventListener('touchstart',e=>{
+    const c=e.target.closest('.card');if(!c)return;
+    const n=cardKey(c.dataset.n);
+    _pt=setTimeout(()=>{_lp=true;openEdit(n);},500);
+  },{passive:true});
+  const cancelPT=()=>{if(_pt){clearTimeout(_pt);_pt=null;}};
+  grid.addEventListener('touchend',cancelPT);
+  grid.addEventListener('touchmove',cancelPT);
+  grid.addEventListener('touchcancel',cancelPT);
 
-      const hBase = document.createElement('h3');
-      hBase.textContent = 'Base Cards';
-      summary.appendChild(hBase);
+  $('summary').addEventListener('click',e=>{
+    const btn=e.target.closest('#clearFilter');
+    if(btn){filterSec=null;render();return;}
+    const row=e.target.closest('.s-row[data-sec]');if(!row)return;
+    filterSec=filterSec===row.dataset.sec?null:row.dataset.sec;
+    render();
+  });
 
-      const BASE_SECS = [
-        'Squad Update','Manager','Away Kit',"UEFA Women's Champions League",
-        'Wingman','Pitch Perfection','Kings of Europe','Hat-Trick Hero',
-        'Topps Heritage - Man of the Match','Topps Heritage - Woman of the Match',
-        '100 Club',"100 Club UEFA Women's Champions League",'100 Club Legend',
-        'Clutch Kids','UEFA Official Matchball','Match Attax Extra Title Card','UEFA 2026 Finals',
-      ];
-      const MEM_SECS = ['UCL Decades Relic','Player-Worn Jersey Relic','Genuine Autograph'];
-      let didInserts = false, didMem = false;
+  $('chips').addEventListener('click',e=>{
+    const b=e.target.closest('.chip');if(!b)return;
+    chip=b.dataset.chip;
+    document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('active',x===b));
+    render();
+  });
 
-      for (const sec of app.SECTION_ORDER) {
-        const info = stats.perSection[sec];
-        if (!info) continue;
-        const label = app.SECTION_LABELS[sec] || sec;
-        const dot   = app.SECTION_CSS[sec] || '';
-        if (!BASE_SECS.includes(sec) && !MEM_SECS.includes(sec) && !didInserts) {
-          const h = document.createElement('h3'); h.textContent = 'Inserts & Specials'; summary.appendChild(h);
-          didInserts = true;
-        }
-        if (MEM_SECS.includes(sec) && !didMem) {
-          const h = document.createElement('h3'); h.textContent = 'Memorabilia & Autographs'; summary.appendChild(h);
-          didMem = true;
-        }
-        summary.appendChild(row('section', sec, label, dot, info.owned, info.incoming, info.total));
-      }
+  $('searchInput').addEventListener('input',e=>{search=e.target.value;render();});
 
-      if (filter.kind !== 'all') {
-        const btn = document.createElement('button');
-        btn.id = 'clearFilter';
-        btn.type = 'button';
-        btn.textContent = 'Show all';
-        summary.appendChild(btn);
-      }
-    }
+  /* Quick add */
+  $('quickAddForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const {valid,errors}=A.parseQuickAdd($('quickAdd').value);
+    const known=new Set(checklist.map(c=>c.number));
+    const orphan=valid.filter(n=>!known.has(n));
+    const parts=[];
+    if(errors.length) parts.push('Rejected: '+errors.join(', '));
+    if(orphan.length) parts.push('Not found: '+orphan.join(', '));
+    $('quickAddError').textContent=parts.join(' · ');
+    if(!valid.length)return;
+    for(const n of valid) col[n]=(col[n]||0)+1;
+    A.save(A.SK,col);
+    $('quickAdd').value='';
+    render();
+    const shown=valid.filter(n=>known.has(n)).length;
+    toast(`✅ +${shown} card${shown===1?'':'s'} added`+(orphan.length?' ('+orphan.length+' unknown)':''));
+  });
 
-    function cardKey(raw) {
-      // Returns a number for pure-numeric ids, string otherwise (e.g. 'CX1')
-      const n = parseInt(raw, 10);
-      return String(n) === String(raw) ? n : raw;
-    }
+  /* Toast */
+  const toastEl=$('toast'); let _tt=null,_th=null;
+  function toast(msg){
+    toastEl.textContent=msg; toastEl.hidden=false;
+    void toastEl.offsetWidth; toastEl.classList.add('show');
+    clearTimeout(_tt);clearTimeout(_th);
+    _tt=setTimeout(()=>{toastEl.classList.remove('show');_th=setTimeout(()=>{toastEl.hidden=true;},300);},2200);
+  }
 
-    function toggle(n) {
-      const cur = collection[n] || 0;
-      if (cur === 0) { collection[n] = 1; delete reserved[n]; }
-      else delete collection[n];
-      app.saveCollection(collection);
-      app.saveReserved(reserved);
-      renderAll();
-    }
+  /* Card edit dialog */
+  const editDlg=$('cardEditModal'), editTitle=$('cardEditTitle');
+  const editCount=$('cardEditCount'), editRsv=$('cardEditReserved'), editRsvRow=$('cardEditReservedRow');
+  let editN=null;
+  function openEdit(n){
+    editN=n;
+    const cnt=col[n]||0;
+    const card=checklist.find(c=>String(c.number)===String(n));
+    editTitle.textContent='#'+n+(card?' · '+(card.player||card.type||''):'');
+    editCount.value=String(cnt);
+    editRsv.checked=(rsv[n]||0)>0;
+    editRsvRow.style.display=cnt===0?'':'none';
+    editDlg.showModal?.()??editDlg.setAttribute('open','');
+    editCount.focus();editCount.select();
+  }
+  editCount.addEventListener('input',()=>{
+    const v=parseInt(editCount.value);
+    editRsvRow.style.display=(isFinite(v)&&v===0)?'':'none';
+  });
+  $('cardEditSave').addEventListener('click',()=>{
+    if(editN===null)return;
+    const raw=editCount.value.trim(), c=parseInt(raw);
+    if(!isFinite(c)||c<0||String(c)!==raw){closeEdit();return;}
+    if(c===0){delete col[editN];if(editRsv.checked)rsv[editN]=1;else delete rsv[editN];}
+    else{col[editN]=c;delete rsv[editN];}
+    A.save(A.SK,col);A.save(A.RK,rsv);
+    closeEdit();render();
+  });
+  $('cardEditCancel').addEventListener('click',closeEdit);
+  function closeEdit(){editDlg.close?.()??editDlg.removeAttribute('open');}
 
-    // Card edit modal
-    const cardEditModal      = document.getElementById('cardEditModal');
-    const cardEditTitle      = document.getElementById('cardEditTitle');
-    const cardEditCount      = document.getElementById('cardEditCount');
-    const cardEditReserved   = document.getElementById('cardEditReserved');
-    const cardEditReservedRow = document.getElementById('cardEditReservedRow');
-    let cardEditNumber = null;
+  /* Text modal */
+  const txtDlg=$('textModal'), txtBody=$('textModalBody'), txtTitle=$('textModalTitle');
+  function openText(title,body){txtTitle.textContent=title;txtBody.value=body;txtDlg.showModal?.()??txtDlg.setAttribute('open','');}
+  $('textModalClose').addEventListener('click',()=>txtDlg.close?.()??txtDlg.removeAttribute('open'));
+  $('textModalCopy').addEventListener('click',async e=>{
+    try{await navigator.clipboard.writeText(txtBody.value);}
+    catch{txtBody.select();document.execCommand('copy');}
+    const orig=e.currentTarget.textContent;
+    e.currentTarget.textContent='✓ Copied!';
+    setTimeout(()=>{e.currentTarget.textContent=orig;},1500);
+  });
 
-    function openCardEdit(n) {
-      cardEditNumber = n;
-      const cur = collection[n] || 0;
-      const rsv = (reserved[n] || 0) > 0;
-      const card = checklist.find(c => String(c.number) === String(n));
-      cardEditTitle.textContent = '#' + n + (card ? ' · ' + card.player : '');
-      cardEditCount.value = String(cur);
-      cardEditReserved.checked = rsv;
-      cardEditReservedRow.style.display = cur === 0 ? '' : 'none';
-      if (typeof cardEditModal.showModal === 'function') cardEditModal.showModal();
-      else cardEditModal.setAttribute('open', '');
-      cardEditCount.focus();
-      cardEditCount.select();
-    }
+  /* Export / import */
+  function handleExport(kind){
+    if(kind==='json'){
+      const data=Object.keys(rsv).length>0?{collection:col,reserved:rsv}:col;
+      const a=document.createElement('a');
+      a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
+      a.download='topps-ma2526-'+new Date().toISOString().slice(0,10)+'.json';
+      document.body.appendChild(a);a.click();a.remove();
+      toast('💾 Saved '+a.download);
+    } else if(kind==='owned')    openText('Owned cards',   A.formatOwned(checklist,col));
+    else if(kind==='missing')    openText('Missing cards',  A.formatMissing(checklist,col,rsv));
+    else if(kind==='incoming')   openText('Incoming cards', A.formatIncoming(checklist,col,rsv));
+    else if(kind==='doubles')    openText('Doubles',        A.formatDoubles(checklist,col));
+  }
 
-    function closeCardEdit() {
-      if (typeof cardEditModal.close === 'function') cardEditModal.close();
-      else cardEditModal.removeAttribute('open');
-    }
+  const exportMenu = $('exportMenu');
+  exportMenu.addEventListener('click',e=>{
+    const b=e.target.closest('button[data-export]');if(!b)return;
+    handleExport(b.dataset.export);
+    exportMenu.open=false;
+  });
+  document.addEventListener('click',e=>{
+    if(exportMenu.open&&!exportMenu.contains(e.target))exportMenu.open=false;
+  });
 
-    cardEditCount.addEventListener('input', () => {
-      const v = parseInt(cardEditCount.value, 10);
-      cardEditReservedRow.style.display = (Number.isFinite(v) && v === 0) ? '' : 'none';
-    });
+  $('importFile').addEventListener('change',async e=>{
+    const file=e.target.files?.[0];if(!file)return;
+    let parsed; try{parsed=JSON.parse(await file.text());}
+    catch{alert('Not valid JSON.');e.target.value='';return;}
+    const merge=confirm('OK = Merge\nCancel = Replace');
+    const res=A.applyImport(col,parsed,merge?'merge':'replace');
+    col=res.collection;if(res.reserved!==undefined)rsv=res.reserved;
+    A.save(A.SK,col);A.save(A.RK,rsv);
+    render();toast('✅ Import applied');e.target.value='';
+  });
 
-    document.getElementById('cardEditSave').addEventListener('click', () => {
-      if (cardEditNumber === null) return;
-      const n = cardEditNumber;
-      const raw = cardEditCount.value.trim();
-      const c = parseInt(raw, 10);
-      if (!Number.isFinite(c) || c < 0 || String(c) !== raw) { closeCardEdit(); return; }
-      if (c === 0) {
-        delete collection[n];
-        if (cardEditReserved.checked) reserved[n] = 1;
-        else delete reserved[n];
-      } else {
-        collection[n] = c;
-        delete reserved[n];
-      }
-      app.saveCollection(collection);
-      app.saveReserved(reserved);
-      closeCardEdit();
-      renderAll();
-    });
-    document.getElementById('cardEditCancel').addEventListener('click', closeCardEdit);
+  /* Theme */
+  const themeBtn=$('themeToggle');
+  const THEMES=['dark','light'];
+  const LABELS={dark:'🌙',light:'☀️'};
+  function getTheme(){return document.documentElement.dataset.theme||'dark';}
+  function setTheme(t){
+    document.documentElement.dataset.theme=t;
+    themeBtn.textContent=LABELS[t];
+    try{localStorage.setItem('topps_ma2526_theme',t);}catch{}
+    // apply light mode overrides
+    const isLight=t==='light';
+    document.getElementById('hero').style.background=isLight?'#0a0a0f':'';
+  }
 
-    let longPressed = false;
-    let pressTimer  = null;
+  // Apply saved
+  const saved=localStorage.getItem?.('topps_ma2526_theme');
+  setTheme(THEMES.includes(saved)?saved:'dark');
+  themeBtn.addEventListener('click',()=>{
+    const i=THEMES.indexOf(getTheme());
+    setTheme(THEMES[(i+1)%THEMES.length]);
+  });
 
-    grid.addEventListener('click', (e) => {
-      const tile = e.target.closest('.tile');
-      if (!tile) return;
-      if (longPressed) { longPressed = false; return; }
-      toggle(cardKey(tile.dataset.number));
-    });
-
-    grid.addEventListener('contextmenu', (e) => {
-      const tile = e.target.closest('.tile');
-      if (!tile) return;
-      e.preventDefault();
-      openCardEdit(cardKey(tile.dataset.number));
-    });
-
-    grid.addEventListener('touchstart', (e) => {
-      const tile = e.target.closest('.tile');
-      if (!tile) return;
-      const n = cardKey(tile.dataset.number);
-      if (pressTimer) clearTimeout(pressTimer);
-      pressTimer = setTimeout(() => {
-        longPressed = true;
-        openCardEdit(n);
-      }, 500);
-    }, { passive: true });
-
-    function cancelPress() {
-      if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; }
-    }
-    grid.addEventListener('touchend',   cancelPress);
-    grid.addEventListener('touchmove',  cancelPress);
-    grid.addEventListener('touchcancel', cancelPress);
-
-    document.getElementById('summary').addEventListener('click', (e) => {
-      if (e.target.id === 'clearFilter') {
-        filter = { kind: 'all', value: null };
-        renderAll();
-        return;
-      }
-      const row = e.target.closest('.summary-row');
-      if (!row) return;
-      const kind  = row.dataset.kind;
-      const value = row.dataset.value;
-      if (filter.kind === kind && filter.value === value) {
-        filter = { kind: 'all', value: null };
-      } else {
-        filter = { kind, value };
-      }
-      renderAll();
-    });
-
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-      searchQuery = e.target.value;
-      renderAll();
-    });
-
-    document.getElementById('chips').addEventListener('click', (e) => {
-      const btn = e.target.closest('.chip');
-      if (!btn) return;
-      chip = btn.dataset.chip;
-      for (const b of document.querySelectorAll('#chips .chip')) {
-        b.classList.toggle('active', b === btn);
-      }
-      renderAll();
-    });
-
-    // Quick-add form
-    const form    = document.getElementById('quickAddForm');
-    const input   = document.getElementById('quickAdd');
-    const errEl   = document.getElementById('quickAddError');
-    const toastEl = document.getElementById('toast');
-    let toastTimer = null, toastHideTimer = null;
-
-    function showToast(msg) {
-      toastEl.textContent = msg;
-      toastEl.hidden = false;
-      void toastEl.offsetWidth;
-      toastEl.classList.add('show');
-      if (toastTimer)     clearTimeout(toastTimer);
-      if (toastHideTimer) clearTimeout(toastHideTimer);
-      toastTimer = setTimeout(() => {
-        toastEl.classList.remove('show');
-        toastHideTimer = setTimeout(() => { toastEl.hidden = true; }, 300);
-      }, 1500);
-    }
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const { valid, errors } = app.parseQuickAdd(input.value);
-      const known  = new Set(checklist.map(c => c.number));
-      const shown  = valid.filter(n => known.has(n));
-      const orphan = valid.filter(n => !known.has(n));
-      const parts  = [];
-      if (errors.length) parts.push('Rejected: ' + errors.join(', '));
-      if (orphan.length) parts.push('Not in checklist: ' + orphan.join(', '));
-      errEl.textContent = parts.join(' · ');
-      if (!valid.length) return;
-      for (const n of valid) collection[n] = (collection[n] || 0) + 1;
-      app.saveCollection(collection);
-      input.value = '';
-      renderAll();
-      const shownLabel = shown.length + ' card' + (shown.length === 1 ? '' : 's');
-      const orphanLabel = orphan.length ? ' (' + orphan.length + ' queued)' : '';
-      showToast('+' + shownLabel + ' added' + orphanLabel);
-    });
-
-    // Export / Import
-    const modal      = document.getElementById('textModal');
-    const modalBody  = document.getElementById('textModalBody');
-    const modalTitle = document.getElementById('textModalTitle');
-
-    function openTextModal(title, body) {
-      modalTitle.textContent = title;
-      modalBody.value = body;
-      if (typeof modal.showModal === 'function') modal.showModal();
-      else modal.setAttribute('open', '');
-      modalBody.focus();
-      modalBody.select();
-    }
-
-    function closeTextModal() {
-      if (typeof modal.close === 'function') modal.close();
-      else modal.removeAttribute('open');
-    }
-
-    document.getElementById('exportMenu').addEventListener('click', (e) => {
-      const b = e.target.closest('button[data-export]');
-      if (!b) return;
-      const kind = b.dataset.export;
-      if (kind === 'json') {
-        const payload = Object.keys(reserved).length > 0
-          ? { collection, reserved }
-          : collection;
-        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-        const url  = URL.createObjectURL(blob);
-        const a    = document.createElement('a');
-        a.href = url;
-        a.download = 'topps-ma2526-' + new Date().toISOString().slice(0, 10) + '.json';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-        showToast('Downloaded ' + a.download);
-      } else if (kind === 'missing') {
-        openTextModal('Missing cards', app.formatMissingList(checklist, collection, reserved));
-      } else if (kind === 'incoming') {
-        openTextModal('Incoming cards', app.formatIncomingList(checklist, collection, reserved));
-      } else if (kind === 'doubles') {
-        openTextModal('Doubles', app.formatDoublesList(checklist, collection));
-      }
-      document.getElementById('exportMenu').open = false;
-    });
-
-    document.addEventListener('click', (e) => {
-      const menu = document.getElementById('exportMenu');
-      if (menu.open && !menu.contains(e.target)) menu.open = false;
-    });
-
-    document.getElementById('textModalCopy').addEventListener('click', async (e) => {
-      const btn = e.currentTarget;
-      try {
-        await navigator.clipboard.writeText(modalBody.value);
-      } catch (_) {
-        modalBody.select();
-        try { document.execCommand('copy'); } catch (_) { /* silent */ }
-      }
-      const orig = btn.textContent;
-      btn.textContent = 'Copied!';
-      setTimeout(() => { btn.textContent = orig; }, 1500);
-    });
-
-    document.getElementById('textModalClose').addEventListener('click', closeTextModal);
-
-    document.getElementById('importFile').addEventListener('change', async (e) => {
-      const file = e.target.files && e.target.files[0];
-      if (!file) return;
-      let parsed;
-      try { parsed = JSON.parse(await file.text()); }
-      catch (_) { alert('Import failed: not valid JSON.'); e.target.value = ''; return; }
-      const merge  = window.confirm(
-        'OK = Merge (add on top of existing)\nCancel = Replace (wipe first)'
-      );
-      const result = app.applyImport(collection, parsed, merge ? 'merge' : 'replace');
-      collection = result.collection;
-      if (result.reserved !== undefined) reserved = result.reserved;
-      app.saveCollection(collection);
-      app.saveReserved(reserved);
-      renderAll();
-      showToast('Import applied');
-      e.target.value = '';
-    });
-
-    // Theme toggle
-    const themeBtn = document.getElementById('themeToggle');
-    const THEMES = ['auto', 'light', 'dark'];
-    const THEME_LABELS = { auto: '🖥 Auto', light: '☀️ Light', dark: '🌙 Dark' };
-
-    function currentTheme() {
-      const t = document.documentElement.getAttribute('data-theme');
-      return THEMES.includes(t) ? t : 'auto';
-    }
-    function applyTheme(t) {
-      document.documentElement.setAttribute('data-theme', t);
-      themeBtn.textContent = THEME_LABELS[t];
-      try {
-        if (t === 'auto') localStorage.removeItem('topps_ma2526_theme');
-        else localStorage.setItem('topps_ma2526_theme', t);
-      } catch (_) { /* storage disabled */ }
-    }
-    applyTheme(currentTheme());
-
-    themeBtn.addEventListener('click', () => {
-      const i = THEMES.indexOf(currentTheme());
-      applyTheme(THEMES[(i + 1) % THEMES.length]);
-    });
-
-    renderAll();
-  })();
-  </script>
-
-  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-
-  <dialog id="cardEditModal">
-    <h3 id="cardEditTitle"></h3>
-    <div style="display:flex;flex-direction:column;gap:.6rem;">
-      <label style="display:flex;flex-direction:column;gap:.2rem;">
-        <span>Copies owned</span>
-        <input id="cardEditCount" type="number" min="0" step="1"
-               style="padding:.3rem .5rem;font:inherit;background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:4px;width:6rem;">
-      </label>
-      <label id="cardEditReservedRow" style="display:flex;align-items:center;gap:.4rem;">
-        <input id="cardEditReserved" type="checkbox">
-        <span>Incoming — trade agreed, card on the way</span>
-      </label>
-    </div>
-    <menu>
-      <button id="cardEditSave"   type="button">Save</button>
-      <button id="cardEditCancel" type="button">Cancel</button>
-    </menu>
-  </dialog>
-
-  <dialog id="textModal">
-    <h3 id="textModalTitle"></h3>
-    <textarea id="textModalBody" rows="18" cols="60" readonly></textarea>
-    <menu>
-      <button id="textModalCopy"  type="button">Copy</button>
-      <button id="textModalClose" type="button">Close</button>
-    </menu>
-  </dialog>
+  render();
+})();
+</script>
 </body>
 </html>
